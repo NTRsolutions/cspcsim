@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activitys.SignUpActivity">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimValue_10"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/rolLable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Designation"
+                    android:textColor="@color/primary_text"
+
+                    android:textSize="@dimen/dimTextSize_14" />
+
+                <Spinner
+                    android:id="@+id/rolspinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:popupBackground="@color/white"
+                    android:prompt="@string/select_des"/>
+
+                <View
+                    android:id="@+id/spinnerLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider" />
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10">
+
+                <EditText
+                    android:id="@+id/enterName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Name"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_middle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10">
+
+                <EditText
+                    android:id="@+id/entermiddlename"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Middle Name"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_surname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10">
+
+                <EditText
+                    android:id="@+id/entersurname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Surname"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Nationalitylable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Nationality"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+
+                <Spinner
+                    android:id="@+id/Nationalityspinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:popupBackground="@color/white"
+                    android:prompt="@string/select_nation"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_16"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/selectrsalable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select RSA"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+
+                <Spinner
+                    android:id="@+id/rsaspinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:popupBackground="@color/white"
+                    android:prompt="@string/select_rsa"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider" />
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_rsaid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10">
+
+                <EditText
+                    android:id="@+id/enterrsaid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter RSA ID number"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/uploadrsa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dimValue_10"
+                    android:paddingTop="@dimen/dimValue_10"
+                    android:text="Upload RSA ID copy"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10">
+
+                <EditText
+                    android:id="@+id/enterphone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter contact number"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10">
+
+                <EditText
+                    android:id="@+id/enteremail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter email address"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_physicaladdress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10">
+
+                <EditText
+                    android:id="@+id/enterphysicaladdress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter physical address"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Postal address same as above (y/n)"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+
+                <Spinner
+                    android:id="@+id/postalspinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:popupBackground="@color/white"
+                    android:prompt="@string/postal"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider" />
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_postaladdress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10">
+
+                <EditText
+                    android:id="@+id/enterpostaladdress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter postal address"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/send"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimValue_20"
+                android:layout_marginRight="@dimen/dimValue_20"
+                android:layout_marginTop="@dimen/dimValue_20"
+                android:paddingBottom="@dimen/dimValue_16"
+                android:paddingTop="@dimen/dimValue_16"
+                android:text="Submit"
+                android:textSize="@dimen/dimTextSize_14" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_30px" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.constraint.ConstraintLayout>
