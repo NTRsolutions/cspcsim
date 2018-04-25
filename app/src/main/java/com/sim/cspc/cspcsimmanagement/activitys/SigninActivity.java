@@ -72,7 +72,7 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.signupText:
                 Intent intent = new Intent(SigninActivity.this, SignUpActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+               // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 break;
         }
@@ -86,22 +86,17 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
         login_password = password.getText().toString();
 
         if (login_email.length() == 0) {
-            email_layout.setError("Please Enter user name");
+            email_layout.setError("Please Enter Phone Number");
             requestFocus(user);
             return false;
-        }  else if (login_password.length() == 0) {
-            password_layout.setError("Please Enter password");
+        }  else if (login_email.contains(" ")) {
+            email_layout.setError("No Spaces Allowed");
             email_layout.setErrorEnabled(false);
-            requestFocus(password);
-            return false;
-        } else if (login_password.contains(" ")) {
-            password_layout.setError("No Spaces Allowed");
-            email_layout.setErrorEnabled(false);
-            requestFocus(password);
+            requestFocus(user);
             return false;
         } else {
             email_layout.setErrorEnabled(false);
-            password_layout.setErrorEnabled(false);
+            //password_layout.setErrorEnabled(false);
         }
         return true;
     }
