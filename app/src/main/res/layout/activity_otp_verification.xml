@@ -4,6 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".activitys.OtpVerificationActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_margin="@dimen/dimValue_10"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:src="@drawable/cspclogo"></ImageView>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/otp_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/otpedit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Phone Number"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/dimTextSize_14" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/otpText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimValue_5"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:paddingBottom="@dimen/dimValue_16"
+            android:paddingTop="@dimen/dimValue_16"
+            android:layout_margin="20dp"
+            android:text="Otp Verify"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimTextSize_14" />
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -1,11 +1,17 @@
 package com.sim.cspc.cspcsimmanagement.activitys;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -13,10 +19,11 @@ import com.sim.cspc.cspcsimmanagement.R;
 import com.sim.cspc.cspcsimmanagement.utilities.CompatibilityUtility;
 import com.sim.cspc.cspcsimmanagement.utilities.FontManager;
 
-public class OtpVerificationActivity extends AppCompatActivity implements View.OnClickListener{
-    private TextInputLayout email_layout, password_layout;
-    private EditText user, password;
-    private String login_email, login_password;
+public class OtpVerificationActivity extends AppCompatActivity implements View.OnClickListener {
+    private TextInputLayout otp_layout;
+    private EditText otpedit;
+    private String otpStr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +31,7 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
         chechPortaitAndLandSacpe();//chech Portait And LandSacpe Orientation
         initView();
     }
+
     //chech Portait And LandSacpe Orientation
     public void chechPortaitAndLandSacpe() {
         if (CompatibilityUtility.isTablet(OtpVerificationActivity.this)) {
@@ -34,24 +42,68 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
     }
-    private void initView(){
+
+    private void initView() {
         Typeface materialdesignicons_font = FontManager.getFontTypefaceMaterialDesignIcons(this, "fonts/materialdesignicons-webfont.otf");
         //userIcon = (TextView) findViewById(R.id.userIcon);
         //userIcon.setTypeface(materialdesignicons_font);
         // userIcon.setText(Html.fromHtml("&#xf1f0;"));
-        email_layout = (TextInputLayout) findViewById(R.id.email_layout);
-        user = (EditText) findViewById(R.id.user);
-        password_layout = (TextInputLayout) findViewById(R.id.password_layout);
-        password = (EditText) findViewById(R.id.password);
-        TextView loginText = (TextView) findViewById(R.id.loginText);
-        loginText.setOnClickListener(this);
-        TextView signupText = (TextView) findViewById(R.id.signupText);
-        signupText.setOnClickListener(this);
+        otp_layout = (TextInputLayout) findViewById(R.id.otp_layout);
+        otpedit = (EditText) findViewById(R.id.otpedit);
+        TextView otpText = (TextView) findViewById(R.id.otpText);
+        otpText.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.otpText:
+                if (isValidate()) {
+                    Intent intent = new Intent(OtpVerificationActivity.this, DashboardActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+                break;
+        }
+    }
 
+    // ----validation -----
+    private boolean isValidate() {
+        String emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+        otpStr = otpedit.getText().toString();
+
+        if (otpStr.length() == 0) {
+            otp_layout.setError("Please Enter Otp");
+            requestFocus(otpedit);
+            return false;
+        } else {
+            otp_layout.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private void requestFocus(View view) {
+        if (view.requestFocus()) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+
+    //for hid keyboard when tab outside edittext box
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (v instanceof EditText) {
+                Rect outRect = new Rect();
+                v.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
+                    v.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent(event);
     }
 }

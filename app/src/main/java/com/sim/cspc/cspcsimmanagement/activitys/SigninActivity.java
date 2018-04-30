@@ -65,8 +65,8 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()) {
             case R.id.loginText:
                 if (isValidate()) {
-                    Intent intent = new Intent(SigninActivity.this, DashboardActivity.class);
-                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Intent intent = new Intent(SigninActivity.this, OtpVerificationActivity.class);
+                     //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }
                 break;
