@@ -61,8 +61,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activitys.SignUpActivity"
-            android:label="Sign Up" />
-        <activity android:name=".activitys.OtpVerificationActivity"></activity>
+            android:label="Sign Up"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activitys.OtpVerificationActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>

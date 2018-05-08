@@ -17,6 +17,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <!--buttons color-->
         <item name="colorAccent">@color/colorAccent</item>
@@ -25,6 +29,7 @@
         <!--dialog background-->
         <item name="android:windowBackground">@drawable/alert_drawable</item>
     </style>
+
 
     <!--CircleDotCustomLoading  Dialog-->
     <style name="CircleDotLoadingDialog" parent="android:Theme.DeviceDefault.Dialog">

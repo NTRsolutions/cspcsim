@@ -8,6 +8,8 @@ import android.graphics.Typeface;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,12 +25,14 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
     private TextInputLayout otp_layout;
     private EditText otpedit;
     private String otpStr;
-
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp_verification);
         chechPortaitAndLandSacpe();//chech Portait And LandSacpe Orientation
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         initView();
     }
 
@@ -48,6 +52,16 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
         //userIcon = (TextView) findViewById(R.id.userIcon);
         //userIcon.setTypeface(materialdesignicons_font);
         // userIcon.setText(Html.fromHtml("&#xf1f0;"));
+        TextView back = (TextView) toolbar.findViewById(R.id.back);
+        back.setTypeface(materialdesignicons_font);
+        back.setText(Html.fromHtml("&#xf30d;"));
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         otp_layout = (TextInputLayout) findViewById(R.id.otp_layout);
         otpedit = (EditText) findViewById(R.id.otpedit);
         TextView otpText = (TextView) findViewById(R.id.otpText);
