@@ -141,14 +141,19 @@ public class DashboardActivity extends AppCompatActivity
                     .replace(R.id.container, fragment)
                     .addToBackStack(null)
                     .commit();
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_Login) {
+            Intent intent = new Intent(DashboardActivity.this, SigninActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_SignUp) {
+            Intent intent = new Intent(DashboardActivity.this, SignUpActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_stock) {
+            Fragment fragment = ViewAllocatedStockFragment.newInstance("", "");
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,11 +27,14 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
     private TextInputLayout email_layout, password_layout;
     private EditText user, password;
     private String login_email, login_password;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
         chechPortaitAndLandSacpe();//chech Portait And LandSacpe Orientation
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         initView();
     }
     //chech Portait And LandSacpe Orientation
@@ -57,7 +61,18 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
         loginText.setOnClickListener(this);
         TextView signupText = (TextView) findViewById(R.id.signupText);
         signupText.setOnClickListener(this);
-
+        //userIcon = (TextView) findViewById(R.id.userIcon);
+        //userIcon.setTypeface(materialdesignicons_font);
+        // userIcon.setText(Html.fromHtml("&#xf1f0;"));
+        TextView back = (TextView) toolbar.findViewById(R.id.back);
+        back.setTypeface(materialdesignicons_font);
+        back.setText(Html.fromHtml("&#xf30d;"));
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

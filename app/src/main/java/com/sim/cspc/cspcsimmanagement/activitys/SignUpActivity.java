@@ -307,6 +307,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 if (checkRuntimePermission()) {
                     selectImage();
                 }
+            case R.id.send:
+                Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }

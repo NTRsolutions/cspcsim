@@ -76,7 +76,7 @@ public class ViewAllocatedStockFragment extends Fragment {
     private Context context;
     private View view;
     private Spinner stockspinner, servicespinner;
-    private TextView dateIcon,datetext;
+    private TextView dateIcon, datetext;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -130,7 +130,7 @@ public class ViewAllocatedStockFragment extends Fragment {
         dateIcon.setText(Html.fromHtml("&#xf0ed;"));
 
         LinearLayout stockDateLayout = (LinearLayout) view.findViewById(R.id.stockDateLayout);
-         datetext = (TextView) view.findViewById(R.id.datetext);
+        datetext = (TextView) view.findViewById(R.id.datetext);
         String myFormat = "yyyy-MM-dd"; //In which you need put here
         final SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         final Calendar myCalendar = Calendar.getInstance();

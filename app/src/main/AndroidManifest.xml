@@ -54,7 +54,7 @@
         </activity>
         <activity
             android:name=".activitys.SigninActivity"
-            android:label="Signin" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activitys.DashboardActivity"
             android:label="Dashboard"

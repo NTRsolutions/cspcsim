@@ -7,16 +7,17 @@
 
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
             android:title="CSPC Admin to Approve/Reject User" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_stock"
+            android:title="View Allocated Stock" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_Login"
+            android:title="Login" />
+        <item
+            android:id="@+id/nav_SignUp"
+            android:title="SignUp" />
+
     </group>
 
     <item android:title="Communicate">
