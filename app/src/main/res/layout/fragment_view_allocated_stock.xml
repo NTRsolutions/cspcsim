@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dimValue_10"
+    android:orientation="vertical"
+    tools:context=".fragements.ViewAllocatedStockFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Nationalitylable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Stock"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+        <Spinner
+            android:id="@+id/stockspinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:popupBackground="@color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimValue_10"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Type Of Service"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+        <Spinner
+            android:id="@+id/servicespinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:popupBackground="@color/white" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dimValue_10"
+            android:layout_weight="0.4"
+            android:background="@color/divider" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="OR"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dimValue_10"
+            android:layout_weight="0.4"
+            android:background="@color/divider" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimValue_10"
+        android:gravity="left|center"
+        android:text="Allocated Stock by Date"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/dimTextSize_14" />
+
+    <LinearLayout
+        android:id="@+id/stockDateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dimValue_5"
+        android:paddingTop="@dimen/dimValue_5">
+
+
+        <TextView
+            android:id="@+id/dateIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="ic"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_20" />
+
+        <TextView
+            android:id="@+id/datetext"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left|center"
+            android:layout_marginLeft="@dimen/dimValue_10"
+            android:text="Select Date"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dimValue_10"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimValue_10"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="left|center"
+            android:text="Total MTN Sim"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="250"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimValue_10"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="left|center"
+            android:text="Total Cel C Sim"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="100"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimValue_10"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="left|center"
+            android:text="Total TelKom Sim"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="500"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimValue_10"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="left|center"
+            android:text="Total Vodacom Sim"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="50"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dimValue_10"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimValue_10"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="left|center"
+            android:text="Total Sim"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="900"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/dimTextSize_14" />
+
+
+    </LinearLayout>
+</LinearLayout>

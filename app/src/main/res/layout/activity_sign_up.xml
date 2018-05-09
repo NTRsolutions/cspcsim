@@ -325,9 +325,9 @@
                     android:id="@+id/asylumLayoutdetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:layout_marginTop="@dimen/dimValue_10"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <Button
                         android:id="@+id/asylumcopybt"
@@ -381,9 +381,9 @@
                     android:id="@+id/workpermitLayoutdetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:layout_marginTop="@dimen/dimValue_10"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <Button
                         android:id="@+id/workperminbt"
@@ -427,6 +427,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter contact number"
+                        android:inputType="number"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>

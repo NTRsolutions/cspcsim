@@ -20,21 +20,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.sim.cspc.cspcsimmanagement.R;
 import com.sim.cspc.cspcsimmanagement.fragements.AdminApproveRejectUserFragment;
+import com.sim.cspc.cspcsimmanagement.fragements.ViewAllocatedStockFragment;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-private  DrawerLayout drawer;
+    private DrawerLayout drawer;
+    private TextView title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        title = (TextView) toolbar.findViewById(R.id.title);
 
-         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -54,19 +59,22 @@ private  DrawerLayout drawer;
             super.onBackPressed();
         }
     }
+
     //hide navigation view
     public void NavHide() {
         drawer.closeDrawer(GravityCompat.START);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.dashboard, menu);
         return true;
     }
+
     //open default fragment
     private void setUpDashboardFragment() {
-        Fragment fragment = AdminApproveRejectUserFragment.newInstance("", "");
+        Fragment fragment = ViewAllocatedStockFragment.newInstance("", "");
         moveFragment(fragment);
     }
 
@@ -76,6 +84,10 @@ private  DrawerLayout drawer;
                 .replace(R.id.container, fragment)
                 //.addToBackStack(null)
                 .commit();
+    }
+
+    public void setTitle(String titleStr) {
+        title.setText(titleStr);
     }
 
     //for hid keyboard when tab outside edittext box
@@ -100,6 +112,7 @@ private  DrawerLayout drawer;
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -121,10 +134,13 @@ private  DrawerLayout drawer;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
+        if (id == R.id.nav_gallery) {
+            Fragment fragment = AdminApproveRejectUserFragment.newInstance("", "");
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

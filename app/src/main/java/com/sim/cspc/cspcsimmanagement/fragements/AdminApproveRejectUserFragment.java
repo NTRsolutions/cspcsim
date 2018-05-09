@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.sim.cspc.cspcsimmanagement.R;
+import com.sim.cspc.cspcsimmanagement.activitys.DashboardActivity;
 import com.sim.cspc.cspcsimmanagement.activitys.SignUpActivity;
 import com.sim.cspc.cspcsimmanagement.adapter.PartyServiceAdapter;
 import com.sim.cspc.cspcsimmanagement.models.SalModel;
@@ -85,6 +86,9 @@ public class AdminApproveRejectUserFragment extends Fragment {
     }
 
     private void init() {
+        DashboardActivity rootActivity = (DashboardActivity) getActivity();
+        rootActivity.setTitle("Admin Approve Reject User");
+
         userspinner = (Spinner) view.findViewById(R.id.userspinner);
         String postal_address_array[] = {"Pending Approvals","Approved Users","Rejected Users"};
         ArrayAdapter<String> postalAdapter = new ArrayAdapter<String>(context, R.layout.spinner_row, postal_address_array);
