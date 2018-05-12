@@ -145,7 +145,7 @@ public class DashboardActivity extends AppCompatActivity
             Intent intent = new Intent(DashboardActivity.this, SigninActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_SignUp) {
-            Intent intent = new Intent(DashboardActivity.this, SignUpActivity.class);
+            Intent intent = new Intent(DashboardActivity.this, RegistrationActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_stock) {
             Fragment fragment = ViewAllocatedStockFragment.newInstance("", "");

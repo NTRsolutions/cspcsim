@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragements.SignupContactDetailFragment">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/app_bar"
+        android:background="@color/white">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimValue_10"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Business Details"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/dimTextSize_18" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_bname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/enterbName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Business Name"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_tradingname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/entertradingnamne"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Trading Name"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/uploadcompanydoc"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:paddingBottom="@dimen/dimValue_5"
+                        android:paddingTop="@dimen/dimValue_5"
+                        android:text="Company Document"
+                        android:textSize="@dimen/dimTextSize_12" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.4"
+                        android:gravity="center"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/idcompanydocImage"
+                            android:layout_width="100dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/imageplaceholder" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimValue_10"
+                    android:background="@color/divider" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_physicaladdress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/enterphysicaladdress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter physical address"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_physicalsuburb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/enterphysicalsuburb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter suburb"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_physicalcity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/enterphysicalcity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter City/Town"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_physicalpostalcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/enterphysicalpostalcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter postal code"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/uploadaddcompny"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:paddingBottom="@dimen/dimValue_5"
+                        android:paddingTop="@dimen/dimValue_5"
+                        android:text="Address of Company"
+                        android:textSize="@dimen/dimTextSize_12" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.4"
+                        android:gravity="center"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/idproofaddcompanyImage"
+                            android:layout_width="100dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/imageplaceholder" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimValue_10"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/uploadphotocompany"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:paddingBottom="@dimen/dimValue_5"
+                        android:paddingTop="@dimen/dimValue_5"
+                        android:text="Photo of Company"
+                        android:textSize="@dimen/dimTextSize_12" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.4"
+                        android:gravity="center"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/idphotocompanyImage"
+                            android:layout_width="100dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/imageplaceholder" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimValue_10"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/uploadcompanymember"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:paddingBottom="@dimen/dimValue_5"
+                        android:paddingTop="@dimen/dimValue_5"
+                        android:text="Company Member ID"
+                        android:textSize="@dimen/dimTextSize_12" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.4"
+                        android:gravity="center"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/idcompanymemberImage"
+                            android:layout_width="100dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/imageplaceholder" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimValue_10"
+                    android:background="@color/divider" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_60px" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/previous"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left|center"
+                android:padding="10dp"
+                android:text="Previous"
+                android:textColor="@color/colorPrimary"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:id="@+id/nextLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:text="Next"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/nextIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Ne"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/done"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:paddingRight="20dp"
+                android:paddingTop="16dp"
+                android:text="Confirm"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

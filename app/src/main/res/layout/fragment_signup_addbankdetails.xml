@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragements.SignupContactDetailFragment">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/app_bar"
+        android:background="@color/white">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimValue_10"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Bank Details"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/dimTextSize_18" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Select Bank Name"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+
+                    <Spinner
+                        android:id="@+id/banknamespinner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:popupBackground="@color/white"
+                        android:prompt="@string/select_nation" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Select Account Type"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+
+                    <Spinner
+                        android:id="@+id/accounttypespinner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:popupBackground="@color/white"
+                        android:prompt="@string/select_nation" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider" />
+                </LinearLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_accountname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/enteraccountname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Account Name"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_accountno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/enteraccountno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Account number"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_branchcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/enterbranchcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Branch Code"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_references"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/enterreferences"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter References"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_name1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/entername1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Name1"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_name2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_10">
+
+                    <EditText
+                        android:id="@+id/entername2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Name2"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_60px" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/previous"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left|center"
+                android:padding="10dp"
+                android:text="Previous"
+                android:textColor="#FFA500"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:id="@+id/nextLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:text="Save All"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/nextIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Ne"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/done"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:paddingRight="20dp"
+                android:paddingTop="16dp"
+                android:text="Confirm"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

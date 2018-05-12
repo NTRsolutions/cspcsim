@@ -55,4 +55,5 @@
     <color name="search_color">#3A949C</color>
 
     <color name="buttocolor">#0866C6</color>
+    <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
 </resources>
