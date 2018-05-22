@@ -1,6 +1,5 @@
 package com.sim.cspc.cspcsimmanagement.fragements;
 
-
 import android.Manifest;
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -9,24 +8,24 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.Log;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,13 +37,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.vision.Frame;
+import com.google.android.gms.vision.barcode.Barcode;
+import com.google.android.gms.vision.barcode.BarcodeDetector;
+import com.sim.cspc.cspcsimmanagement.BuildConfig;
 import com.sim.cspc.cspcsimmanagement.R;
 import com.sim.cspc.cspcsimmanagement.activitys.DashboardActivity;
-import com.sim.cspc.cspcsimmanagement.activitys.SignUpActivity;
 import com.sim.cspc.cspcsimmanagement.utilities.FontManager;
 import com.sim.cspc.cspcsimmanagement.utilities.Utility;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,14 +57,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SignupGeneralInformationFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class SignupGeneralInformationFragment extends Fragment implements View.OnClickListener {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class ScanBarcodeofSimcardUploadingDocFragment extends Fragment implements View.OnClickListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -68,8 +65,7 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
     private String mParam1;
     private String mParam2;
 
-
-    public SignupGeneralInformationFragment() {
+    public ScanBarcodeofSimcardUploadingDocFragment() {
         // Required empty public constructor
     }
 
@@ -82,8 +78,8 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
      * @return A new instance of fragment SignupGeneralInformationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SignupGeneralInformationFragment newInstance(String param1, String param2) {
-        SignupGeneralInformationFragment fragment = new SignupGeneralInformationFragment();
+    public static ScanBarcodeofSimcardUploadingDocFragment newInstance(String param1, String param2) {
+        ScanBarcodeofSimcardUploadingDocFragment fragment = new ScanBarcodeofSimcardUploadingDocFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -104,11 +100,10 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
     View view;
     LinearLayout nextLayout;
 
-
-    private Spinner rolspinner, countryspinner, Nationalityspinner, documentTypespinner,genderspinner;
+    private Spinner countryspinner, Nationalityspinner, documentTypespinner, genderspinner;
     private TextInputLayout input_layout_name, input_layout_middle, input_layout_surname, input_layout_rsaid;
     private EditText enterName, entermiddlename, entersurname, enterrsaid;
-    private Button uploadrsa, passwordcopybt, asylumcopybt, workperminbt, proofcompanybt;
+    private Button uploadrsa, passwordcopybt, asylumcopybt, workperminbt, proofcompanybt, barcodebt;
 
     final private int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 124;
     public final int REQUEST_CAMERA = 101;
@@ -117,20 +112,29 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
     private String base64Image;
     private Toolbar toolbar;
     LinearLayout rsaIdDetail, nonrsalayout, passpostLayoutdetail, asylumLayoutdetail, workpermitLayoutdetail;
-    TextView passportexpDate, asylumexpDate;
+    TextView passportexpDate, asylumexpDate, barcodetext;
     private ImageView addcompanyImage, workpermitImage, passportImage, rsaImage, asylumcopyImage;
     private boolean addcompanyImageFlag = false;
     private boolean workpermitImageFlag = false;
     private boolean passportImageFlag = false;
     private boolean rsaImageFlag = false;
     private boolean asylumcopyImageFlag = false;
+    private boolean barcodebtFlag = false;
 
+    private BarcodeDetector detector;
+    private static final String LOG_TAG = "Barcode Scanner API";
+    private Uri imageUri;
+    private static final String SAVED_INSTANCE_URI = "uri";
+    private static final String SAVED_INSTANCE_RESULT = "result";
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_uploading_doc_scan_bar_codeof_simcard, container, false);
         context = getActivity();
-        view = inflater.inflate(R.layout.fragment_signup_general_information, container, false);
+        barcodetext = (TextView) view.findViewById(R.id.barcodetext);
+        if (savedInstanceState != null) {
+            imageUri = Uri.parse(savedInstanceState.getString(SAVED_INSTANCE_URI));
+            barcodetext.setText(savedInstanceState.getString(SAVED_INSTANCE_RESULT));
+        }
         init();
         return view;
     }
@@ -160,7 +164,6 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
         enterrsaid = (EditText) view.findViewById(R.id.enterrsaid);
 
 
-        rolspinner = (Spinner) view.findViewById(R.id.rolspinner);
         countryspinner = (Spinner) view.findViewById(R.id.countryspinner);
 
         Nationalityspinner = (Spinner) view.findViewById(R.id.Nationalityspinner);
@@ -178,6 +181,8 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
         workperminbt.setOnClickListener(this);
         proofcompanybt = (Button) view.findViewById(R.id.proofcompanybt);
         proofcompanybt.setOnClickListener(this);
+        barcodebt = (Button) view.findViewById(R.id.barcodebt);
+        barcodebt.setOnClickListener(this);
 
         addcompanyImage = (ImageView) view.findViewById(R.id.addcompanyImage);
         workpermitImage = (ImageView) view.findViewById(R.id.workpermitImage);
@@ -242,10 +247,10 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
             }
         });
         setSpinerValue();
+        barCode();
     }
 
     private void setSpinerValue() {
-        String designation_array[] = {"Zoner", "Sub wholeseller", "Shop"};
         final String nation_array[] = {"RSA", "Non RSA"};
         final String rsa_array[] = {"Johannesburg", "Capetown", "Durban"};
         final String nonrsa_array[] = {"Zimbabwe", "Nizeeria", "Umlanga"};
@@ -255,11 +260,6 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
 
         ArrayAdapter<String> gender_arrayapter = new ArrayAdapter<String>(context, R.layout.spinner_row, gender_array);
         genderspinner.setAdapter(gender_arrayapter);
-
-        ArrayAdapter<String> roladapter = new ArrayAdapter<String>(context, R.layout.spinner_row, designation_array);
-        rolspinner.setAdapter(roladapter);
-        //rolspinner.setOnItemSelectedListener(new SignUpActivity.MyOnItemSelectedListener());
-
 
         ArrayAdapter<String> nationalityspinneradapter = new ArrayAdapter<String>(context, R.layout.spinner_row, nation_array);
         Nationalityspinner.setAdapter(nationalityspinneradapter);
@@ -318,6 +318,16 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
         });
     }
 
+    private void barCode() {
+        detector = new BarcodeDetector.Builder(context)
+                .setBarcodeFormats(Barcode.DATA_MATRIX | Barcode.QR_CODE)
+                .build();
+        if (!detector.isOperational()) {
+            barcodetext.setText("Could not set up the detector!");
+            return;
+        }
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -334,6 +344,7 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
                 passportImageFlag = false;
                 rsaImageFlag = true;
                 asylumcopyImageFlag = false;
+                barcodebtFlag = false;
                 if (checkRuntimePermission()) {
                     selectImage();
                 }
@@ -344,6 +355,7 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
                 passportImageFlag = true;
                 rsaImageFlag = false;
                 asylumcopyImageFlag = false;
+                barcodebtFlag = false;
                 if (checkRuntimePermission()) {
                     selectImage();
                 }
@@ -354,6 +366,7 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
                 passportImageFlag = false;
                 rsaImageFlag = false;
                 asylumcopyImageFlag = true;
+                barcodebtFlag = false;
                 if (checkRuntimePermission()) {
                     selectImage();
                 }
@@ -364,6 +377,7 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
                 passportImageFlag = false;
                 rsaImageFlag = false;
                 asylumcopyImageFlag = false;
+                barcodebtFlag = false;
                 if (checkRuntimePermission()) {
                     selectImage();
                 }
@@ -374,14 +388,33 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
                 passportImageFlag = false;
                 rsaImageFlag = false;
                 asylumcopyImageFlag = false;
+                barcodebtFlag = false;
                 if (checkRuntimePermission()) {
                     selectImage();
                 }
                 break;
-
+            case R.id.barcodebt:
+                addcompanyImageFlag = false;
+                workpermitImageFlag = false;
+                passportImageFlag = false;
+                rsaImageFlag = false;
+                asylumcopyImageFlag = false;
+                barcodebtFlag = true;
+                if (checkRuntimePermission()) {
+                    takePicture();
+                }
+                break;
         }
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        if (imageUri != null) {
+            outState.putString(SAVED_INSTANCE_URI, imageUri.toString());
+            outState.putString(SAVED_INSTANCE_RESULT, barcodetext.getText().toString());
+        }
+        super.onSaveInstanceState(outState);
+    }
     private void saveScreenData(boolean NextPreviousFlag, boolean DoneFlag) {
         Intent intent = new Intent("ViewPageChange");
         intent.putExtra("NextPreviousFlag", NextPreviousFlag);
@@ -430,12 +463,89 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == SELECT_PHOTO) {
-                onSelectFromGalleryResult(data);
-            } else if (requestCode == REQUEST_CAMERA) {
-                onCaptureImageResult(data);
+            if (barcodebtFlag) {
+                launchMediaScanIntent();
+                try {
+                    Bitmap bitmap = decodeBitmapUri(context, imageUri);
+                    if (detector.isOperational() && bitmap != null) {
+                        Frame frame = new Frame.Builder().setBitmap(bitmap).build();
+                        SparseArray<Barcode> barcodes = detector.detect(frame);
+                        for (int index = 0; index < barcodes.size(); index++) {
+                            Barcode code = barcodes.valueAt(index);
+                            barcodetext.setText(barcodetext.getText() + code.displayValue + "\n");
+
+                            //Required only if you need to extract the type of barcode
+                            int type = barcodes.valueAt(index).valueFormat;
+                            switch (type) {
+                                case Barcode.CONTACT_INFO:
+                                    Log.i(LOG_TAG, code.contactInfo.title);
+                                    break;
+                                case Barcode.EMAIL:
+                                    Log.i(LOG_TAG, code.email.address);
+                                    break;
+                                case Barcode.ISBN:
+                                    Log.i(LOG_TAG, code.rawValue);
+                                    break;
+                                case Barcode.PHONE:
+                                    Log.i(LOG_TAG, code.phone.number);
+                                    break;
+                                case Barcode.PRODUCT:
+                                    Log.i(LOG_TAG, code.rawValue);
+                                    break;
+                                case Barcode.SMS:
+                                    Log.i(LOG_TAG, code.sms.message);
+                                    break;
+                                case Barcode.TEXT:
+                                    Log.i(LOG_TAG, code.rawValue);
+                                    break;
+                                case Barcode.URL:
+                                    Log.i(LOG_TAG, "url: " + code.url.url);
+                                    break;
+                                case Barcode.WIFI:
+                                    Log.i(LOG_TAG, code.wifi.ssid);
+                                    break;
+                                case Barcode.GEO:
+                                    Log.i(LOG_TAG, code.geoPoint.lat + ":" + code.geoPoint.lng);
+                                    break;
+                                case Barcode.CALENDAR_EVENT:
+                                    Log.i(LOG_TAG, code.calendarEvent.description);
+                                    break;
+                                case Barcode.DRIVER_LICENSE:
+                                    Log.i(LOG_TAG, code.driverLicense.licenseNumber);
+                                    break;
+                                default:
+                                    Log.i(LOG_TAG, code.rawValue);
+                                    break;
+                            }
+                        }
+                        if (barcodes.size() == 0) {
+                            barcodetext.setText("Scan Failed: Found nothing to scan");
+                        }
+                    } else {
+                        barcodetext.setText("Could not set up the detector!");
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(context, "Failed to load Image", Toast.LENGTH_SHORT)
+                            .show();
+                    Log.e(LOG_TAG, e.toString());
+                }
+            } else {
+
+                if (requestCode == SELECT_PHOTO) {
+                    onSelectFromGalleryResult(data);
+                } else if (requestCode == REQUEST_CAMERA) {
+                    onCaptureImageResult(data);
+                }
             }
         }
+    }
+    private void takePicture() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        File photo = new File(Environment.getExternalStorageDirectory(), "picture.jpg");
+        imageUri = FileProvider.getUriForFile(context,
+                BuildConfig.APPLICATION_ID + ".provider", photo);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        startActivityForResult(intent, REQUEST_CAMERA);
     }
 
     private void onSelectFromGalleryResult(Intent data) {
@@ -584,7 +694,11 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
                 if (perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                         && perms.get(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     // All Permissions Granted
-                    selectImage();
+                    if (barcodebtFlag) {
+                        takePicture();
+                    } else {
+                        selectImage();
+                    }
                 } else {
                     // Permission Denied
                     Toast.makeText(context, "Permission is Denied", Toast.LENGTH_SHORT)
@@ -596,6 +710,26 @@ public class SignupGeneralInformationFragment extends Fragment implements View.O
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
+    private Bitmap decodeBitmapUri(Context ctx, Uri uri) throws FileNotFoundException {
+        int targetW = 600;
+        int targetH = 600;
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(ctx.getContentResolver().openInputStream(uri), null, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
 
+        int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+
+        return BitmapFactory.decodeStream(ctx.getContentResolver()
+                .openInputStream(uri), null, bmOptions);
+    }
+    private void launchMediaScanIntent() {
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        mediaScanIntent.setData(imageUri);
+        context.sendBroadcast(mediaScanIntent);
+    }
 
 }

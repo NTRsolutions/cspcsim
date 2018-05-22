@@ -23,10 +23,10 @@ import com.sim.cspc.cspcsimmanagement.utilities.FontManager;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SignupContactDetailFragment#newInstance} factory method to
+ * Use the {@link ScanBarCodeContactDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SignupContactDetailFragment extends Fragment implements View.OnClickListener {
+public class ScanBarCodeContactDetailFragment extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,7 +37,7 @@ public class SignupContactDetailFragment extends Fragment implements View.OnClic
     private String mParam2;
 
 
-    public SignupContactDetailFragment() {
+    public ScanBarCodeContactDetailFragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +47,11 @@ public class SignupContactDetailFragment extends Fragment implements View.OnClic
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SignupContactDetailFragment.
+     * @return A new instance of fragment ScanBarCodeContactDetailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SignupContactDetailFragment newInstance(String param1, String param2) {
-        SignupContactDetailFragment fragment = new SignupContactDetailFragment();
+    public static ScanBarCodeContactDetailFragment newInstance(String param1, String param2) {
+        ScanBarCodeContactDetailFragment fragment = new ScanBarCodeContactDetailFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,25 +67,24 @@ public class SignupContactDetailFragment extends Fragment implements View.OnClic
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     private Context context;
     View view;
     LinearLayout nextLayout;
-    private TextInputLayout input_layout_phone, input_layout_email, input_layout_physicaladdress, input_layout_postaladdress, input_layout_mobile, input_layout_secondayemail, input_layout_postalsuburb, input_layout_postalcity, input_layout_postalpostalcode;
-    private EditText enterphone, enteremail, enterphysicaladdress, enterpostaladdress, entermobile, entersecondayemail, enterpostalsuburb, enterpostalcity, enterpostalpostalcode;
+    private TextInputLayout input_layout_phone, input_layout_email, input_layout_physicaladdress, input_layout_postaladdress, input_layout_mobile, input_layout_postalsuburb, input_layout_postalcity, input_layout_postalpostalcode;
+    private EditText enterphone, enteremail, enterphysicaladdress, enterpostaladdress, entermobile, enterpostalsuburb, enterpostalcity, enterpostalpostalcode;
     private Spinner postalspinner;
     private EditText enterphysicalsuburb, enterphysicalcity, enterphysicalpostalcode;
     private TextInputLayout input_layout_physicalsuburb, input_layout_physicalcity, input_layout_physicalpostalcodel;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         context = getActivity();
-        view = inflater.inflate(R.layout.fragment_signup_contact_detail, container, false);
+        view =  inflater.inflate(R.layout.fragment_scan_bar_code_contact_detail, container, false);
         init();
         return view;
     }
+
 
     private void init() {
         Typeface fontawesome_font = FontManager.getFontTypefaceMaterialDesignIcons(getActivity(), "fonts/fontawesome-webfont.ttf");
@@ -101,7 +100,6 @@ public class SignupContactDetailFragment extends Fragment implements View.OnClic
         nextIcon.setText(Html.fromHtml("&#xf142;"));
 
         input_layout_phone = (TextInputLayout) view.findViewById(R.id.input_layout_phone);
-        input_layout_secondayemail = (TextInputLayout) view.findViewById(R.id.input_layout_secondayemail);
         input_layout_phone = (TextInputLayout) view.findViewById(R.id.input_layout_phone);
         input_layout_physicaladdress = (TextInputLayout) view.findViewById(R.id.input_layout_physicaladdress);
         input_layout_postaladdress = (TextInputLayout) view.findViewById(R.id.input_layout_postaladdress);
@@ -122,7 +120,6 @@ public class SignupContactDetailFragment extends Fragment implements View.OnClic
 
         enterpostaladdress = (EditText) view.findViewById(R.id.enterpostaladdress);
         entermobile = (EditText) view.findViewById(R.id.entermobile);
-        entersecondayemail = (EditText) view.findViewById(R.id.entersecondayemail);
         enterpostalsuburb = (EditText) view.findViewById(R.id.enterpostalsuburb);
         enterpostalcity = (EditText) view.findViewById(R.id.enterpostalcity);
         enterpostalpostalcode = (EditText) view.findViewById(R.id.enterpostalpostalcode);

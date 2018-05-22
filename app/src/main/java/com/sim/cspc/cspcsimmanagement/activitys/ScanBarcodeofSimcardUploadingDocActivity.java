@@ -20,26 +20,27 @@ import android.widget.TextView;
 
 import com.sim.cspc.cspcsimmanagement.R;
 import com.sim.cspc.cspcsimmanagement.adapter.RegistrationPagerAdapter;
+import com.sim.cspc.cspcsimmanagement.adapter.ScanBarcodeofSimcardUploadingAdapter;
 import com.sim.cspc.cspcsimmanagement.utilities.CompatibilityUtility;
 import com.sim.cspc.cspcsimmanagement.utilities.FontManager;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class ScanBarcodeofSimcardUploadingDocActivity extends AppCompatActivity {
     ViewPager mPager;
     private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
-        chechPortaitAndLandSacpe();//chech Portait And LandSacpe Orientation
+        setContentView(R.layout.activity_scan_barcodeof_simcard_uploading_doc);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        chechPortaitAndLandSacpe();
         initView();
     }
 
     //chech Portait And LandSacpe Orientation
     public void chechPortaitAndLandSacpe() {
-        if (CompatibilityUtility.isTablet(RegistrationActivity.this)) {
+        if (CompatibilityUtility.isTablet(ScanBarcodeofSimcardUploadingDocActivity.this)) {
 
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         } else {
@@ -60,7 +61,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 finish();
             }
         });
-        RegistrationPagerAdapter mAdapter = new RegistrationPagerAdapter(getSupportFragmentManager());
+        ScanBarcodeofSimcardUploadingAdapter mAdapter = new ScanBarcodeofSimcardUploadingAdapter(getSupportFragmentManager());
         mPager = (ViewPager) findViewById(R.id.viewPager_itemList);
         mPager.setAdapter(mAdapter);
     }
@@ -101,6 +102,7 @@ public class RegistrationActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
+
     //for hid keyboard when tab outside edittext box
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
@@ -121,3 +123,4 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
 }
+

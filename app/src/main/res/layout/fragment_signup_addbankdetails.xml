@@ -95,6 +95,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Account Name"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>
@@ -110,6 +112,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Account number"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>
@@ -125,6 +129,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Branch Code"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>
@@ -140,6 +146,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter References"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>
@@ -155,6 +163,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Name1"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>
@@ -170,6 +180,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Name2"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>

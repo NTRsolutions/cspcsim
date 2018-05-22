@@ -97,7 +97,7 @@ public class SignupAddBankDetailsFragment extends Fragment implements View.OnCli
         nextIcon.setTypeface(materialdesignicons_font);
         nextIcon.setText(Html.fromHtml("&#xf142;"));
 
-        String account_type_array[] = {"Savings Account", "Current Account", "Money Market Investment Accounts"};
+        final String account_type_array[] = {"Savings Account", "Current Account", "Money Market Investment Accounts"};
         String bank_name_array[] = {"African Bank", "Bidvest Bank", "Capitec Bank", "Discovery Bank", "First National Bank", "Grindrod Bank", "Imperial Bank South Africa"};
         banknamespinner = (Spinner) view.findViewById(R.id.banknamespinner);
         accounttypespinner = (Spinner) view.findViewById(R.id.accounttypespinner);
@@ -108,8 +108,9 @@ public class SignupAddBankDetailsFragment extends Fragment implements View.OnCli
         accounttypespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                TextView textview = view.findViewById(R.id.cust_view);
-                if (textview.getText().toString().equals("Savings Account")) {
+              //  TextView textview = view.findViewById(R.id.cust_view);
+                String str=account_type_array[position];
+                if (str.equals("Savings Account")) {
 
                 }
             }

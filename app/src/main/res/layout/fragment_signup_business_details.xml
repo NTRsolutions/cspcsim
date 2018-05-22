@@ -42,6 +42,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Business Name"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>
@@ -57,6 +59,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter Trading Name"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>
@@ -109,6 +113,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter physical address"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>
@@ -124,6 +130,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter suburb"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>
@@ -139,6 +147,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter City/Town"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>
@@ -154,6 +164,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter postal code"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/dimTextSize_14" />
                 </android.support.design.widget.TextInputLayout>

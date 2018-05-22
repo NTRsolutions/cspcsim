@@ -18,41 +18,50 @@
             android:layout_margin="@dimen/dimValue_10"
             android:background="@color/white"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="General Information"
-                android:textColor="@color/primary_text"
-                android:textSize="@dimen/dimTextSize_18" />
-
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimValue_10"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/rolLable"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Select Designation"
-                    android:textColor="@color/primary_text"
+                    android:orientation="horizontal">
 
-                    android:textSize="@dimen/dimTextSize_14" />
+                    <Button
+                        android:id="@+id/barcodebt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.6"
+                        android:paddingBottom="@dimen/dimValue_5"
+                        android:paddingTop="@dimen/dimValue_5"
+                        android:text="Scans Bar Code"
+                        android:textSize="@dimen/dimTextSize_12" />
 
-                <Spinner
-                    android:id="@+id/rolspinner"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:popupBackground="@color/white"
-                    android:prompt="@string/select_des" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.4"
+                        android:gravity="center"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/barcodetext"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/dimTextSize_16" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <View
-                    android:id="@+id/spinnerLine"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimValue_10"
                     android:background="@color/divider" />
             </LinearLayout>
 
@@ -106,6 +115,7 @@
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/dimTextSize_14" />
             </android.support.design.widget.TextInputLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -131,6 +141,7 @@
                     android:layout_height="1dp"
                     android:background="@color/divider" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -368,8 +379,8 @@
                     <Button
                         android:id="@+id/asylumcopybt"
                         android:layout_width="0dp"
-                        android:layout_weight="0.6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.6"
                         android:paddingBottom="@dimen/dimValue_5"
                         android:paddingTop="@dimen/dimValue_5"
                         android:text="Asylum Copy"

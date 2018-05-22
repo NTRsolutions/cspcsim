@@ -11,6 +11,14 @@
         <item
             android:id="@+id/nav_stock"
             android:title="View Allocated Stock" />
+
+        <item
+            android:id="@+id/upload_document"
+            android:title="Scan Barcode of Simcard" />
+
+        <item
+            android:id="@+id/reports_DashBoards"
+            android:title="Reports/Dash Boards" />
         <item
             android:id="@+id/nav_Login"
             android:title="Login" />

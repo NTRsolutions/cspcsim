@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -24,6 +25,9 @@ import android.widget.TextView;
 
 import com.sim.cspc.cspcsimmanagement.R;
 import com.sim.cspc.cspcsimmanagement.fragements.AdminApproveRejectUserFragment;
+import com.sim.cspc.cspcsimmanagement.fragements.HomeFragment;
+import com.sim.cspc.cspcsimmanagement.fragements.ReportsDashBoardsFragment;
+import com.sim.cspc.cspcsimmanagement.fragements.ScanBarcodeofSimcardUploadingDocFragment;
 import com.sim.cspc.cspcsimmanagement.fragements.ViewAllocatedStockFragment;
 
 public class DashboardActivity extends AppCompatActivity
@@ -74,7 +78,7 @@ public class DashboardActivity extends AppCompatActivity
 
     //open default fragment
     private void setUpDashboardFragment() {
-        Fragment fragment = ViewAllocatedStockFragment.newInstance("", "");
+        Fragment fragment = HomeFragment.newInstance("", "");
         moveFragment(fragment);
     }
 
@@ -154,10 +158,28 @@ public class DashboardActivity extends AppCompatActivity
                     .replace(R.id.container, fragment)
                     .addToBackStack(null)
                     .commit();
+        } else if (id == R.id.upload_document) {
+            Intent intent = new Intent(DashboardActivity.this, ScanBarcodeofSimcardUploadingDocActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.reports_DashBoards) {
+            ReportsDashBoardsFragment fragment = new ReportsDashBoardsFragment();
+            naviGateFragment(fragment, null);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void naviGateFragment(Fragment fragment, Bundle bundle) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragment.setArguments(bundle);
+        fragmentTransaction.replace(R.id.container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+
+    }
+
 }

@@ -86,7 +86,7 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
                 }
                 break;
             case R.id.signupText:
-                Intent intent = new Intent(SigninActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(SigninActivity.this, RegistrationActivity.class);
                // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 break;
