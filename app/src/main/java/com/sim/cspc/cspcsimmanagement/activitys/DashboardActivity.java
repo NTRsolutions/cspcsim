@@ -164,7 +164,23 @@ public class DashboardActivity extends AppCompatActivity
         } else if (id == R.id.reports_DashBoards) {
             ReportsDashBoardsFragment fragment = new ReportsDashBoardsFragment();
             naviGateFragment(fragment, null);
-        }
+        }/*else if (id == R.id.subscriber_register) {
+            Intent intent = new Intent(DashboardActivity.this, SubscriberRegistrationActivity.class);
+           // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } else if (id == R.id.subscriber_deregister) {
+            Intent intent = new Intent(DashboardActivity.this, SubscriberDeRegistrationActivity.class);
+            //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } else if (id == R.id.subscriber_query) {
+            Intent intent = new Intent(DashboardActivity.this, SubscriberQueryActivity.class);
+           // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } else if (id == R.id.subscriber_chnageowner) {
+            Intent intent = new Intent(DashboardActivity.this, SubscriberChnageOwnerActivity.class);
+            //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

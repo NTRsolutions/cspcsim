@@ -2,21 +2,23 @@ package com.sim.cspc.cspcsimmanagement.fragements;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.sim.cspc.cspcsimmanagement.R;
 import com.sim.cspc.cspcsimmanagement.activitys.DashboardActivity;
+import com.sim.cspc.cspcsimmanagement.activitys.SubscriberChnageOwnerActivity;
+import com.sim.cspc.cspcsimmanagement.activitys.SubscriberDeRegistrationActivity;
+import com.sim.cspc.cspcsimmanagement.activitys.SubscriberQueryActivity;
+import com.sim.cspc.cspcsimmanagement.activitys.SubscriberRegistrationActivity;
 import com.sim.cspc.cspcsimmanagement.adapter.SlidingImage_Adapter_For_ItemDetails;
 import com.sim.cspc.cspcsimmanagement.utilities.FontManager;
 
@@ -26,10 +28,10 @@ import java.util.TimerTask;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link RicaFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class RicaFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -40,7 +42,7 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
 
-    public HomeFragment() {
+    public RicaFragment() {
         // Required empty public constructor
     }
 
@@ -50,11 +52,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment RicaFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static RicaFragment newInstance(String param1, String param2) {
+        RicaFragment fragment = new RicaFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -73,19 +75,19 @@ public class HomeFragment extends Fragment {
 
     private Context context;
     View view;
+    LinearLayout subregister, querylayout, changeLayout, deregisterLayout;
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
     private static final Integer[] IMAGES = {R.drawable.mtn, R.drawable.voda, R.drawable.cell, R.drawable.ver, R.drawable.tall};
     private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         context = getActivity();
-        view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_rica, container, false);
         init();
         return view;
     }
@@ -104,40 +106,43 @@ public class HomeFragment extends Fragment {
         TextView nextIcon = (TextView) view.findViewById(R.id.nextIcon);
         nextIcon.setTypeface(materialdesignicons_font);
         nextIcon.setText(Html.fromHtml("&#xf142;"));*/
-        LinearLayout reportslayout = (LinearLayout) view.findViewById(R.id.reportslayout);
-        LinearLayout simlayout = (LinearLayout) view.findViewById(R.id.simlayout);
-        LinearLayout ricaLayout = (LinearLayout) view.findViewById(R.id.ricaLayout);
-        // LinearLayout reportslayout = (LinearLayout) view.findViewById(R.id.reportslayout);
-        simlayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment fragment = ViewAllocatedStockFragment.newInstance("", "");
-                moveFragment(fragment);
-            }
-        });
-        reportslayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment fragment = new ReportsDashBoardsFragment();
-                moveFragment(fragment);
-            }
-        });
-        ricaLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment fragment = new RicaFragment();
-                moveFragment(fragment);
-            }
-        });
+        subregister = (LinearLayout) view.findViewById(R.id.subregister);
+        querylayout = (LinearLayout) view.findViewById(R.id.querylayout);
+        changeLayout = (LinearLayout) view.findViewById(R.id.changeLayout);
+        deregisterLayout = (LinearLayout) view.findViewById(R.id.deregisterLayout);
+        subregister.setOnClickListener(this);
+        querylayout.setOnClickListener(this);
+        changeLayout.setOnClickListener(this);
+        deregisterLayout.setOnClickListener(this);
         slideimage();
     }
 
-    private void moveFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commit();
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        switch (v.getId()) {
+
+            case R.id.subregister:
+                intent = new Intent(context, SubscriberRegistrationActivity.class);
+                // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+            case R.id.querylayout:
+                intent = new Intent(context, SubscriberQueryActivity.class);
+                // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+            case R.id.changeLayout:
+                intent = new Intent(context, SubscriberChnageOwnerActivity.class);
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+            case R.id.deregisterLayout:
+                intent = new Intent(context, SubscriberDeRegistrationActivity.class);
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+        }
     }
 
     private void slideimage() {
@@ -197,5 +202,4 @@ public class HomeFragment extends Fragment {
         });
 */
     }
-
 }

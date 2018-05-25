@@ -69,12 +69,13 @@
         <activity
             android:name=".activitys.RegistrationActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activitys.ScanBarcodeofSimcardUploadingDocActivity"
+        <activity
+            android:name=".activitys.ScanBarcodeofSimcardUploadingDocActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
-            android:value="barcode"/>
+            android:value="barcode" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -83,8 +84,21 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
+
+        <activity
+            android:name=".activitys.SubscriberRegistrationActivity"
+            android:label="Subscriber Register" />
+        <activity
+            android:name=".activitys.SubscriberDeRegistrationActivity"
+            android:label="Subscriber DeRegister" />
+        <activity
+            android:name=".activitys.SubscriberQueryActivity"
+            android:label="Subscriber Query" />
+        <activity
+            android:name=".activitys.SubscriberChnageOwnerActivity"
+            android:label="Subscriber Chnage Owner" />
     </application>
 
 </manifest>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activitys.SignUpActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimValue_16"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_cellNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+              >
+
+                <EditText
+                    android:id="@+id/cellphoneName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cellphone Number/SIM/Starter Pack Ref*"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_15"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/identificationType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Identification Type*"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+
+                <Spinner
+                    android:id="@+id/identificationTypeSpineer"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:popupBackground="@color/white"
+                    android:prompt="@string/pls_select" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider" />
+            </LinearLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_idNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_15">
+
+                <EditText
+                    android:id="@+id/idNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Id Number*"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_15"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/countryCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Country Code*"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+
+                <Spinner
+                    android:id="@+id/countryCodespinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:popupBackground="@color/white"
+                    android:prompt="@string/pls_select" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_15"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ReasonLabl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reason"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/dimTextSize_14" />
+
+                <Spinner
+                    android:id="@+id/ReasonSpinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:popupBackground="@color/white"
+                    android:prompt="@string/pls_select" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/dimValue_20"
+            android:paddingTop="@dimen/dimValue_16">
+
+
+            <Button
+                android:id="@+id/Submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimValue_20"
+                android:layout_marginRight="@dimen/dimValue_20"
+                android:layout_marginTop="@dimen/dimValue_20"
+                android:layout_weight="1"
+                android:text="Submit"
+                android:elevation="@dimen/dimValue_10"
+                android:background="@color/buttocolor"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimTextSize_14" />
+
+
+            <Button
+                android:id="@+id/cancle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimValue_20"
+                android:layout_marginRight="@dimen/dimValue_20"
+                android:layout_marginTop="@dimen/dimValue_20"
+                android:layout_weight="1"
+                android:background="@color/buttocolor"
+                android:textAllCaps="false"
+                android:elevation="@dimen/dimValue_10"
+                android:text="Cancel"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimTextSize_14" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

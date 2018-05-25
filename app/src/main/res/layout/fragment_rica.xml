@@ -16,7 +16,7 @@
             android:id="@+id/pager"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_alignParentTop="true" />
+           />
 
     </RelativeLayout>
 
@@ -40,7 +40,7 @@
                 android:elevation="8dp"
                 app:cardCornerRadius="5dp">
 
-                <LinearLayout android:id="@+id/ricaLayout"
+                <LinearLayout android:id="@+id/subregister"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -50,14 +50,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="0.7"
-                        android:src="@drawable/ricalogo" />
+                        android:src="@drawable/ricalogo"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.3"
                         android:gravity="center"
-                        android:text="RICA"
+                        android:text="Subscriber Register"
                         android:textColor="#000"
                         android:textSize="@dimen/dimTextSize_16"
                        />
@@ -75,7 +76,7 @@
                 android:elevation="8dp"
                 app:cardCornerRadius="5dp">
 
-                <LinearLayout
+                <LinearLayout android:id="@+id/querylayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -85,14 +86,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="0.7"
-                        android:src="@drawable/airt" />
+                        android:src="@drawable/airt"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.3"
                         android:gravity="center"
-                        android:text="AIRTIME"
+                        android:text="Subscriber Query"
                         android:textColor="#000"
                         android:textSize="@dimen/dimTextSize_16"
                        />
@@ -116,7 +118,7 @@
                 app:cardCornerRadius="5dp">
 
                 <LinearLayout
-                    android:id="@+id/simlayout"
+                    android:id="@+id/changeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -126,17 +128,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="0.7"
-                        android:src="@drawable/sim" />
+                        android:src="@drawable/sim"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.3"
                         android:gravity="center"
-                        android:text="SIM SALES"
+                        android:text="Subscriber Chnage Owner"
                         android:textColor="#000"
                         android:textSize="@dimen/dimTextSize_16"
-                       />
+                     />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -151,7 +154,7 @@
                 android:elevation="8dp"
                 app:cardCornerRadius="5dp">
 
-                <LinearLayout
+                <LinearLayout    android:id="@+id/deregisterLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -161,14 +164,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="0.7"
-                        android:src="@drawable/ewallet" />
+                        android:src="@drawable/ewallet"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.3"
                         android:gravity="center"
-                        android:text="E-WALLET"
+                        android:text="Subscriber DeRegister"
                         android:textColor="#000"
                         android:textSize="@dimen/dimTextSize_16"
                       />
@@ -177,80 +181,6 @@
             </android.support.v7.widget.CardView>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_margin="@dimen/dimValue_10"
-                android:layout_weight="0.5"
-                android:background="@color/white"
-                android:elevation="8dp"
-                app:cardCornerRadius="5dp">
-
-                <LinearLayout
-                    android:id="@+id/reportslayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.7"
-                        android:src="@drawable/reports" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.3"
-                        android:gravity="center"
-                        android:text="REPORTS"
-                        android:textColor="#000"
-                        android:textSize="@dimen/dimTextSize_16"
-                        />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-            <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_margin="@dimen/dimValue_10"
-                android:layout_weight="0.5"
-                android:background="@color/white"
-                android:elevation="8dp"
-                app:cardCornerRadius="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.7"
-                        android:src="@drawable/contactus" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.3"
-                        android:gravity="center"
-                        android:text="CONTACT US"
-                        android:textColor="#000"
-                        android:textSize="@dimen/dimTextSize_16"
-                       />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

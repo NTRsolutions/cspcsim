@@ -19,12 +19,29 @@
         <item
             android:id="@+id/reports_DashBoards"
             android:title="Reports/Dash Boards" />
+       <!-- <item
+            android:id="@+id/subscriber_register"
+            android:title="Subscriber Register" />
+
+        <item
+            android:id="@+id/subscriber_deregister"
+            android:title="Subscriber DeRegister" />
+
+        <item
+            android:id="@+id/subscriber_query"
+            android:title="Subscriber Query" />
+
+        <item
+            android:id="@+id/subscriber_chnageowner"
+            android:title="Subscriber Chnage Owner" />-->
+
         <item
             android:id="@+id/nav_Login"
             android:title="Login" />
         <item
             android:id="@+id/nav_SignUp"
             android:title="SignUp" />
+
 
     </group>
 

@@ -90,7 +90,7 @@ public class ViewAllocatedStockFragment extends Fragment {
 
     private void init() {
         DashboardActivity rootActivity = (DashboardActivity) getActivity();
-        rootActivity.setTitle("View Allocated Stock");
+       // rootActivity.setTitle("View Allocated Stock");
 
         String stock_array[] = {"My Stock", "XYZ Stock", "ABC Stock"};
         stockspinner = (Spinner) view.findViewById(R.id.stockspinner);

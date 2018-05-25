@@ -14,5 +14,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="selectreport"> Select Report Type</string>
+    <string name="selectreport_type"> Select Report Type</string>
+    <string name="pls_select">Please select</string>
 
 </resources>
