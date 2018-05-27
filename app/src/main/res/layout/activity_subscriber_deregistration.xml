@@ -19,12 +19,10 @@
             android:orientation="vertical">
 
 
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_cellNo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-              >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/cellphoneName"
@@ -68,17 +66,55 @@
                 android:id="@+id/input_layout_idNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimValue_15">
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/dimValue_16">
 
                 <EditText
                     android:id="@+id/idNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Id Number*"
+                    android:hint=""
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/dimTextSize_14" />
             </android.support.design.widget.TextInputLayout>
+            <LinearLayout
+                android:id="@+id/passportLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/dimValue_16"
+                android:orientation="vertical">
 
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_passportno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_16">
+
+                    <EditText
+                        android:id="@+id/passportNoView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Passport Number*"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_passportexpiry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimValue_16">
+
+                    <EditText
+                        android:id="@+id/passportexpiryView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Passport Expiry Date*"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -154,9 +190,9 @@
                 android:layout_marginRight="@dimen/dimValue_20"
                 android:layout_marginTop="@dimen/dimValue_20"
                 android:layout_weight="1"
-                android:text="Submit"
-                android:elevation="@dimen/dimValue_10"
                 android:background="@color/buttocolor"
+                android:elevation="@dimen/dimValue_10"
+                android:text="Submit"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/dimTextSize_14" />
@@ -171,9 +207,9 @@
                 android:layout_marginTop="@dimen/dimValue_20"
                 android:layout_weight="1"
                 android:background="@color/buttocolor"
-                android:textAllCaps="false"
                 android:elevation="@dimen/dimValue_10"
                 android:text="Cancel"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/dimTextSize_14" />
 

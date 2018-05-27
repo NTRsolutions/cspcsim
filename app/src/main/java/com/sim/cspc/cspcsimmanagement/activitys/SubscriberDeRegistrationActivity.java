@@ -10,16 +10,22 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import com.sim.cspc.cspcsimmanagement.R;
+import com.sim.cspc.cspcsimmanagement.adapter.SpinnerWithRadioButtonAdapter;
 import com.sim.cspc.cspcsimmanagement.utilities.CompatibilityUtility;
+
+import java.util.ArrayList;
 
 public class SubscriberDeRegistrationActivity extends AppCompatActivity implements View.OnClickListener {
     private Spinner identificationTypeSpineer, countryCodespinner, ReasonSpinner;
     private TextInputLayout input_layout_cellNo, input_layout_idNumber;
     private EditText cellphoneName, idNumber;
     private Button Submit, cancle;
+    private LinearLayout passportLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,7 @@ public class SubscriberDeRegistrationActivity extends AppCompatActivity implemen
         this.idNumber = this.findViewById(R.id.idNumber);
         this.Submit = this.findViewById(R.id.Submit);
         this.cancle = this.findViewById(R.id.cancle);
+        passportLayout = this.findViewById(R.id.passportLayout);
 
         this.identificationTypeSpineer = this.findViewById(R.id.identificationTypeSpineer);
         this.countryCodespinner = this.findViewById(R.id.countryCodespinner);
@@ -55,14 +62,47 @@ public class SubscriberDeRegistrationActivity extends AppCompatActivity implemen
 
     private void setSpinerValue() {
 
-        String idificationspinner_array[] = {"Please Select", "Business Registration Number", "Id Number", "Passport"};
         String countryCodespinner_array[] = {"South Africa", "India"};
         String resaonspinner_array[] = {"Please Select", "Error", "Lost", "Stolen", "immigration", "Deceased", "other"};
 
+        final ArrayList<String> idificationspinner_array = new ArrayList<String>();
+        idificationspinner_array.add("Please Select");
+        idificationspinner_array.add("Business Registration Number");
+        idificationspinner_array.add("Id Number");
+        idificationspinner_array.add("Passport");
 
-        ArrayAdapter<String> idificationspinnerrdata = new ArrayAdapter<String>(this, R.layout.spinner_row, idificationspinner_array);
+        SpinnerWithRadioButtonAdapter idificationspinnerrdata = new SpinnerWithRadioButtonAdapter(this, idificationspinner_array);
         identificationTypeSpineer.setAdapter(idificationspinnerrdata);
-        identificationTypeSpineer.setOnItemSelectedListener(new MyOnItemSelectedListener());
+        identificationTypeSpineer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                RadioButton radio = (RadioButton) view.findViewById(R.id.radio);
+                if (radio != null) {
+                    radio.setChecked(true);
+                }
+                String str = idificationspinner_array.get(position).toString();
+                if (str.equals("Business Registration Number")) {
+                    passportLayout.setVisibility(View.GONE);
+                    input_layout_idNumber.setVisibility(View.VISIBLE);
+                    idNumber.setHint("Business Registration Number*");
+                } else if (str.equals("Id Number")) {
+                    passportLayout.setVisibility(View.GONE);
+                    input_layout_idNumber.setVisibility(View.VISIBLE);
+                    idNumber.setHint("ID Number*");
+                } else if (str.equals("Passport")) {
+                    passportLayout.setVisibility(View.VISIBLE);
+                    input_layout_idNumber.setVisibility(View.GONE);
+                } else {
+                    passportLayout.setVisibility(View.GONE);
+                    input_layout_idNumber.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         ArrayAdapter<String> subscriberSpinnerdata = new ArrayAdapter<String>(this, R.layout.spinner_row, countryCodespinner_array);
         countryCodespinner.setAdapter(subscriberSpinnerdata);

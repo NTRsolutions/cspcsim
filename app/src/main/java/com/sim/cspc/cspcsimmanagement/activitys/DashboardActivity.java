@@ -21,14 +21,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.sim.cspc.cspcsimmanagement.R;
+import com.sim.cspc.cspcsimmanagement.adapter.NavigationMenuAdapter;
 import com.sim.cspc.cspcsimmanagement.fragements.AdminApproveRejectUserFragment;
 import com.sim.cspc.cspcsimmanagement.fragements.HomeFragment;
 import com.sim.cspc.cspcsimmanagement.fragements.ReportsDashBoardsFragment;
 import com.sim.cspc.cspcsimmanagement.fragements.ScanBarcodeofSimcardUploadingDocFragment;
 import com.sim.cspc.cspcsimmanagement.fragements.ViewAllocatedStockFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -52,8 +57,37 @@ public class DashboardActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         setUpDashboardFragment();
+        setMenuLayout();
     }
+    //set slider item value
+    public void setMenuLayout() {
 
+        ListView menuList = (ListView) findViewById(R.id.lst_menu_items);
+        menuList.setDivider(null);
+        List<String> itemList = new ArrayList<String>();
+        itemList.add("CSPC Admin to Approve/Reject User");
+        itemList.add("View Allocated Stock");
+        itemList.add("Scan Barcode of Simcard");
+        itemList.add("Reports/Dash Boards");
+        itemList.add("Login");
+        itemList.add("SignUp");
+
+        List<String> menuIconList = new ArrayList<String>();
+        menuIconList.add("f515");
+        menuIconList.add("f2dc");
+        menuIconList.add("f072");
+        menuIconList.add("f219");
+        menuIconList.add("f342");
+        menuIconList.add("f004");
+
+        NavigationMenuAdapter navigationMenuAdapter = new NavigationMenuAdapter(DashboardActivity.this, itemList, menuIconList);
+        menuList.setAdapter(navigationMenuAdapter);
+    }
+    //close drawer after item select
+    public void closeDrawer() {
+        drawer.closeDrawer(GravityCompat.START);
+        //return true;
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -138,7 +172,7 @@ public class DashboardActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_gallery) {
+      /*  if (id == R.id.nav_gallery) {
             Fragment fragment = AdminApproveRejectUserFragment.newInstance("", "");
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction()
@@ -164,7 +198,7 @@ public class DashboardActivity extends AppCompatActivity
         } else if (id == R.id.reports_DashBoards) {
             ReportsDashBoardsFragment fragment = new ReportsDashBoardsFragment();
             naviGateFragment(fragment, null);
-        }/*else if (id == R.id.subscriber_register) {
+        }*//*else if (id == R.id.subscriber_register) {
             Intent intent = new Intent(DashboardActivity.this, SubscriberRegistrationActivity.class);
            // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
@@ -180,10 +214,10 @@ public class DashboardActivity extends AppCompatActivity
             Intent intent = new Intent(DashboardActivity.this, SubscriberChnageOwnerActivity.class);
             //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-        }*/
+        }*//*
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        drawer.closeDrawer(GravityCompat.START);*/
         return true;
     }
 

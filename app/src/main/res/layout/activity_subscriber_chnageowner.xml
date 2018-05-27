@@ -170,6 +170,61 @@
                         android:layout_height="1dp"
                         android:background="@color/divider" />
                 </LinearLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_idNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dimValue_16">
+
+                    <EditText
+                        android:id="@+id/idNoView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/passportLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dimValue_16"
+                    android:orientation="vertical">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_passportno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimValue_16">
+
+                        <EditText
+                            android:id="@+id/passportNoView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Passport Number*"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/dimTextSize_14" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_passportexpiry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimValue_16">
+
+                        <EditText
+                            android:id="@+id/passportexpiryView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Passport Expiry Date*"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/dimTextSize_14" />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -197,21 +252,6 @@
                         android:layout_height="1dp"
                         android:background="@color/divider" />
                 </LinearLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/input_layout_idnum"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimValue_16">
-
-                    <EditText
-                        android:id="@+id/idNumber"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="ID Number*"
-                        android:textColor="@color/primary_text"
-                        android:textSize="@dimen/dimTextSize_14" />
-                </android.support.design.widget.TextInputLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -248,7 +288,59 @@
                         android:layout_height="1dp"
                         android:background="@color/divider" />
                 </LinearLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/newinput_layout_idNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dimValue_16">
 
+                    <EditText
+                        android:id="@+id/newidNoView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/dimTextSize_14" />
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/newpassportLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dimValue_16"
+                    android:orientation="vertical">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/newinput_layout_passportno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimValue_16">
+
+                        <EditText
+                            android:id="@+id/newpassportNoView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Passport Number*"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/dimTextSize_14" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/newinput_layout_passportexpiry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimValue_16">
+
+                        <EditText
+                            android:id="@+id/newpassportexpiryView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Passport Expiry Date*"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/dimTextSize_14" />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -276,21 +368,6 @@
                         android:background="@color/divider" />
                 </LinearLayout>
 
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/input_layout_newidnum"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimValue_16">
-
-                    <EditText
-                        android:id="@+id/newidNumber"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="ID Number*"
-                        android:textColor="@color/primary_text"
-                        android:textSize="@dimen/dimTextSize_14" />
-                </android.support.design.widget.TextInputLayout>
 
 
                 <android.support.design.widget.TextInputLayout
