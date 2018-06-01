@@ -76,7 +76,7 @@ public class HomeFragment extends Fragment {
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private static final Integer[] IMAGES = {R.drawable.mtn, R.drawable.voda, R.drawable.cell, R.drawable.ver, R.drawable.tall};
+    private static final Integer[] IMAGES = {R.drawable.mtn, R.drawable.voda, R.drawable.cell, R.drawable.tall};
     private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
 
 
@@ -174,7 +174,7 @@ public class HomeFragment extends Fragment {
             public void run() {
                 handler.post(Update);
             }
-        }, 3000, 3000);
+        }, 4000, 4000);
 
         // Pager listener over indicator
       /*  indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

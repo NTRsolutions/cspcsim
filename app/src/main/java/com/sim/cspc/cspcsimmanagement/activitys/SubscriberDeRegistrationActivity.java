@@ -2,9 +2,12 @@ package com.sim.cspc.cspcsimmanagement.activitys;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,10 +16,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.sim.cspc.cspcsimmanagement.R;
 import com.sim.cspc.cspcsimmanagement.adapter.SpinnerWithRadioButtonAdapter;
 import com.sim.cspc.cspcsimmanagement.utilities.CompatibilityUtility;
+import com.sim.cspc.cspcsimmanagement.utilities.FontManager;
 
 import java.util.ArrayList;
 
@@ -26,12 +31,14 @@ public class SubscriberDeRegistrationActivity extends AppCompatActivity implemen
     private EditText cellphoneName, idNumber;
     private Button Submit, cancle;
     private LinearLayout passportLayout;
-
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subscriber_deregistration);
         chechPortaitAndLandSacpe();//chech Portait And LandSacpe Orientation
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         initView();
     }
 
@@ -45,6 +52,16 @@ public class SubscriberDeRegistrationActivity extends AppCompatActivity implemen
     }
 
     private void initView() {
+        Typeface materialdesignicons_font = FontManager.getFontTypefaceMaterialDesignIcons(this, "fonts/materialdesignicons-webfont.otf");
+        TextView back = (TextView) toolbar.findViewById(R.id.back);
+        back.setTypeface(materialdesignicons_font);
+        back.setText(Html.fromHtml("&#xf30d;"));
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         this.input_layout_cellNo = this.findViewById(R.id.input_layout_cellNo);
         this.input_layout_idNumber = this.findViewById(R.id.input_layout_idNumber);

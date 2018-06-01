@@ -19,6 +19,7 @@ import com.sim.cspc.cspcsimmanagement.activitys.SubscriberChnageOwnerActivity;
 import com.sim.cspc.cspcsimmanagement.activitys.SubscriberDeRegistrationActivity;
 import com.sim.cspc.cspcsimmanagement.activitys.SubscriberQueryActivity;
 import com.sim.cspc.cspcsimmanagement.activitys.SubscriberRegistrationActivity;
+import com.sim.cspc.cspcsimmanagement.activitys.SubscriberUpdateActivity;
 import com.sim.cspc.cspcsimmanagement.adapter.SlidingImage_Adapter_For_ItemDetails;
 import com.sim.cspc.cspcsimmanagement.utilities.FontManager;
 
@@ -75,11 +76,11 @@ public class RicaFragment extends Fragment implements View.OnClickListener {
 
     private Context context;
     View view;
-    LinearLayout subregister, querylayout, changeLayout, deregisterLayout;
+    LinearLayout subregister, querylayout, changeLayout, deregisterLayout,updateLayout;
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private static final Integer[] IMAGES = {R.drawable.mtn, R.drawable.voda, R.drawable.cell, R.drawable.ver, R.drawable.tall};
+    private static final Integer[] IMAGES = {R.drawable.mtn, R.drawable.voda, R.drawable.cell, R.drawable.tall};
     private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
 
     @Override
@@ -114,6 +115,8 @@ public class RicaFragment extends Fragment implements View.OnClickListener {
         querylayout.setOnClickListener(this);
         changeLayout.setOnClickListener(this);
         deregisterLayout.setOnClickListener(this);
+        updateLayout = (LinearLayout) view.findViewById(R.id.updateLayout);
+        updateLayout.setOnClickListener(this);
         slideimage();
     }
 
@@ -140,6 +143,10 @@ public class RicaFragment extends Fragment implements View.OnClickListener {
             case R.id.deregisterLayout:
                 intent = new Intent(context, SubscriberDeRegistrationActivity.class);
                 //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+            case R.id.updateLayout:
+                intent = new Intent(context, SubscriberUpdateActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -179,7 +186,7 @@ public class RicaFragment extends Fragment implements View.OnClickListener {
             public void run() {
                 handler.post(Update);
             }
-        }, 3000, 3000);
+        }, 4000, 4000);
 
         // Pager listener over indicator
       /*  indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

@@ -71,7 +71,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activitys.ScanBarcodeofSimcardUploadingDocActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
@@ -89,16 +89,18 @@
 
         <activity
             android:name=".activitys.SubscriberRegistrationActivity"
-            android:label="Subscriber Register" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activitys.SubscriberDeRegistrationActivity"
-            android:label="Subscriber DeRegister" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".activitys.SubscriberQueryActivity"
-            android:label="Subscriber Query" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".activitys.SubscriberChnageOwnerActivity"
-            android:label="Subscriber Chnage Owner" />
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activitys.SubscriberUpdateActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

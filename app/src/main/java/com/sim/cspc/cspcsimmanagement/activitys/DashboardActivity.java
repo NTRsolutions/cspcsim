@@ -69,16 +69,24 @@ public class DashboardActivity extends AppCompatActivity
         itemList.add("View Allocated Stock");
         itemList.add("Scan Barcode of Simcard");
         itemList.add("Reports/Dash Boards");
-        itemList.add("Login");
-        itemList.add("SignUp");
+        itemList.add("Sim Sales");
+        itemList.add("Rica");
+        itemList.add("Airtime");
+        itemList.add("Contact Us");
+        itemList.add("E-Wallet");
+        itemList.add("Reports");
 
         List<String> menuIconList = new ArrayList<String>();
         menuIconList.add("f515");
         menuIconList.add("f2dc");
         menuIconList.add("f072");
         menuIconList.add("f219");
-        menuIconList.add("f342");
-        menuIconList.add("f004");
+        menuIconList.add("f4a7");
+        menuIconList.add("f002");
+        menuIconList.add("f01c");
+        menuIconList.add("f18e");
+        menuIconList.add("f584");
+        menuIconList.add("f219");
 
         NavigationMenuAdapter navigationMenuAdapter = new NavigationMenuAdapter(DashboardActivity.this, itemList, menuIconList);
         menuList.setAdapter(navigationMenuAdapter);

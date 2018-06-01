@@ -23,6 +23,7 @@ import com.sim.cspc.cspcsimmanagement.activitys.ScanBarcodeofSimcardUploadingDoc
 import com.sim.cspc.cspcsimmanagement.activitys.SigninActivity;
 import com.sim.cspc.cspcsimmanagement.fragements.AdminApproveRejectUserFragment;
 import com.sim.cspc.cspcsimmanagement.fragements.ReportsDashBoardsFragment;
+import com.sim.cspc.cspcsimmanagement.fragements.RicaFragment;
 import com.sim.cspc.cspcsimmanagement.fragements.ViewAllocatedStockFragment;
 import com.sim.cspc.cspcsimmanagement.utilities.FontManager;
 
@@ -113,12 +114,15 @@ public class NavigationMenuAdapter extends BaseAdapter {
                 } else if (menuList.get(position).equals("Reports/Dash Boards")) {
                     ReportsDashBoardsFragment fragment = new ReportsDashBoardsFragment();
                     navigateToFragment(fragment);
-                } else if (menuList.get(position).equals("Login")) {
-                    Intent intent = new Intent(mContext, SigninActivity.class);
-                    mContext.startActivity(intent);
-                } else if (menuList.get(position).equals("SignUp")) {
-                    Intent intent = new Intent(mContext, RegistrationActivity.class);
-                    mContext.startActivity(intent);
+                } else if (menuList.get(position).equals("Sim Sales")) {
+                    Fragment fragment = ViewAllocatedStockFragment.newInstance("", "");
+                    navigateToFragment(fragment);
+                } else if (menuList.get(position).equals("Rica")) {
+                    Fragment fragment = new RicaFragment();
+                    navigateToFragment(fragment);
+                } else if (menuList.get(position).equals("Reports")) {
+                    Fragment fragment = new ReportsDashBoardsFragment();
+                    navigateToFragment(fragment);
                 }
                 int pos = (int) v.getTag();
                 if (selectedPosition.contains(pos)) {

@@ -106,6 +106,7 @@
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/dimTextSize_14" />
             </android.support.design.widget.TextInputLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -131,6 +132,7 @@
                     android:layout_height="1dp"
                     android:background="@color/divider" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -368,8 +370,8 @@
                     <Button
                         android:id="@+id/asylumcopybt"
                         android:layout_width="0dp"
-                        android:layout_weight="0.6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.6"
                         android:paddingBottom="@dimen/dimValue_5"
                         android:paddingTop="@dimen/dimValue_5"
                         android:text="Asylum Copy"
@@ -503,11 +505,49 @@
                     </LinearLayout>
                 </LinearLayout>
 
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="@dimen/dimValue_10"
                     android:background="@color/divider" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimValue_10"
+                android:gravity="left|center"
+                android:text="Current Location"
+                android:textColor="#000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimValue_10"
+                android:layout_marginBottom="@dimen/dimValue_10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/dimValue_5"
+                    android:gravity="left|center"
+                    android:text="Latitude: 30.5595"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dimValue_5"
+                    android:gravity="left|center"
+                    android:text="Longitude: 22.9375"
+                    android:textColor="#000" />
             </LinearLayout>
 
 

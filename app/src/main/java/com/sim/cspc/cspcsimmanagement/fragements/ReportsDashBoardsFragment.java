@@ -50,7 +50,7 @@ public class ReportsDashBoardsFragment extends Fragment implements View.OnClickL
 
     private void setSpinerValue() {
         String select_report[] = {"ABC001", "ABC002", "ABC0003", "ABC0004"};
-        String select_report_type[] = {"Sales per region", "Commission received", "Sim cards allocated", "No. of Activations", "No. of Sim Swoops"};
+        String select_report_type[] = {"Sales per region", "Commission received", "Sim cards allocated", "No. of Activations", "No. of Sim Swap "};
 
 
         ArrayAdapter<String> select_reportAdapter = new ArrayAdapter<String>(getContext(), R.layout.spinner_row, select_report);

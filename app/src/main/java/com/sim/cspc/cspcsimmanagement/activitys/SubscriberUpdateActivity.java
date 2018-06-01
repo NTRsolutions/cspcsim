@@ -3,9 +3,9 @@ package com.sim.cspc.cspcsimmanagement.activitys;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
-import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
@@ -26,21 +26,25 @@ import com.sim.cspc.cspcsimmanagement.utilities.FontManager;
 
 import java.util.ArrayList;
 
-public class SubscriberChnageOwnerActivity extends AppCompatActivity implements View.OnClickListener {
-    private Spinner networkSpineer, existingSpineer, registerwithSpineer, idificationspinner, nationalityspinner, newidificationspinner, newnationalityspinner,
+public class SubscriberUpdateActivity extends AppCompatActivity implements View.OnClickListener{
+    private Spinner networkspinner, subscriberSpinner, registerwithspinner, idificationspinner, nationalityspinner,
             proofAdressspinner, countrySpinner, postalSpinner;
 
-    private EditText cellNumber, fourdigitSIM, passportexpiryView, fullName, sureName, Country_Code, areaCode, dilangNumber,
-            Adress, Adress1, Adress3, City_Town, suburb, newidNoView, idNoView;
+    private TextInputLayout input_layout_cellNo, input_layout_simdigit, input_layout_idNo, input_layout_passportexpiry, input_layout_fullName,
+            input_layout_surName, input_layout_countryCode, input_layout_areaCode, input_layout_dilingNo, input_layout_adress,
+            input_layout_adress1, input_layout_adress3,
+            input_layout_cityTown, input_layout_suburb;
+
+    private EditText cellphoneName, simDigitNo, idNoView, passportexpiryView, fullName, sureName, Country_Code, areaCode, dilangNumber,
+            Adress, Adress1, Adress3, City_Town, suburb;
     private Button Submit, cancle;
     TextView passportexpDate, asylumexpDate;
-    private LinearLayout passportLayout, newpassportLayout;
-    private TextInputLayout input_layout_idNo, newinput_layout_idNo;
+    private LinearLayout passportLayout;
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subscriber_chnageowner);
+        setContentView(R.layout.activity_subscriber_update);
         chechPortaitAndLandSacpe();//chech Portait And LandSacpe Orientation
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -49,7 +53,7 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
 
     //chech Portait And LandSacpe Orientation
     public void chechPortaitAndLandSacpe() {
-        if (CompatibilityUtility.isTablet(SubscriberChnageOwnerActivity.this)) {
+        if (CompatibilityUtility.isTablet(SubscriberUpdateActivity.this)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         } else {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -68,8 +72,26 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
             }
         });
 
-        this.cellNumber = this.findViewById(R.id.cellNumber);
-        this.fourdigitSIM = this.findViewById(R.id.fourdigitSIM);
+        this.input_layout_cellNo = this.findViewById(R.id.input_layout_cellNo);
+        this.input_layout_simdigit = this.findViewById(R.id.input_layout_simdigit);
+        this.input_layout_idNo = this.findViewById(R.id.input_layout_idNo);
+        this.input_layout_passportexpiry = this.findViewById(R.id.input_layout_passportexpiry);
+        this.input_layout_fullName = this.findViewById(R.id.input_layout_fullName);
+        this.input_layout_surName = this.findViewById(R.id.input_layout_surName);
+        this.input_layout_countryCode = this.findViewById(R.id.input_layout_countryCode);
+        this.input_layout_areaCode = this.findViewById(R.id.input_layout_areaCode);
+        this.input_layout_dilingNo = this.findViewById(R.id.input_layout_dilingNo);
+        this.input_layout_adress = this.findViewById(R.id.input_layout_adress);
+        this.input_layout_adress1 = this.findViewById(R.id.input_layout_adress1);
+        this.input_layout_adress3 = this.findViewById(R.id.input_layout_adress3);
+        this.input_layout_cityTown = this.findViewById(R.id.input_layout_cityTown);
+        this.input_layout_suburb = this.findViewById(R.id.input_layout_suburb);
+
+
+        this.cellphoneName = this.findViewById(R.id.cellphoneName);
+        this.simDigitNo = this.findViewById(R.id.simDigitNo);
+        this.idNoView = this.findViewById(R.id.idNoView);
+        this.passportexpiryView = this.findViewById(R.id.passportexpiryView);
         this.fullName = this.findViewById(R.id.fullName);
         this.sureName = this.findViewById(R.id.sureName);
         this.Country_Code = this.findViewById(R.id.Country_Code);
@@ -82,34 +104,27 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
         this.suburb = this.findViewById(R.id.suburb);
         this.Submit = this.findViewById(R.id.Submit);
         this.cancle = this.findViewById(R.id.cancle);
-        passportLayout = this.findViewById(R.id.passportLayout);
-        newpassportLayout = this.findViewById(R.id.newpassportLayout);
-        this.input_layout_idNo = this.findViewById(R.id.input_layout_idNo);
-        this.newinput_layout_idNo = this.findViewById(R.id.newinput_layout_idNo);
-        this.idNoView = this.findViewById(R.id.idNoView);
-        this.newidNoView = this.findViewById(R.id.newidNoView);
 
-        this.networkSpineer = this.findViewById(R.id.networkSpineer);
-        this.existingSpineer = this.findViewById(R.id.existingSpineer);
-        this.registerwithSpineer = this.findViewById(R.id.registerwithSpineer);
+        this.networkspinner = this.findViewById(R.id.networkspinner);
+        this.subscriberSpinner = this.findViewById(R.id.subscriberSpinner);
+        this.registerwithspinner = this.findViewById(R.id.registerwithspinner);
         this.idificationspinner = this.findViewById(R.id.idificationspinner);
         this.nationalityspinner = this.findViewById(R.id.nationalityspinner);
-        this.newidificationspinner = this.findViewById(R.id.newidificationspinner);
-        this.newnationalityspinner = this.findViewById(R.id.newnationalityspinner);
         this.proofAdressspinner = this.findViewById(R.id.proofAdressspinner);
         this.countrySpinner = this.findViewById(R.id.countrySpinner);
         this.postalSpinner = this.findViewById(R.id.postalSpinner);
+
+        passportLayout = this.findViewById(R.id.passportLayout);
         setSpinerValue();
     }
 
     private void setSpinerValue() {
-
-        //String networkspinner_array[] = {"Please Select", "MTN", "Vodacom", "CellC", "Telkom", "Virgin"};
         ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
         Integer[] IMAGES = {R.drawable.mtn, R.drawable.vodalogo, R.drawable.celllogo, R.drawable.talllogo, R.drawable.verlogo};
         for (int i = 0; i < IMAGES.length; i++) {
             ImagesArray.add(IMAGES[i]);
         }
+        // String networkspinner_array[] = {"Please Select", "MTN", "Vodacom", "CellC", "Telkom", "Virgin"};
         ArrayList<String> subscriberSpinnerdata_array = new ArrayList<String>();
         subscriberSpinnerdata_array.add("New");
         subscriberSpinnerdata_array.add("Existing");
@@ -126,16 +141,17 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
         idificationspinner_array.add("Id Number");
         idificationspinner_array.add("Passport");
 
-        String nationalityspinner_array[] = {"RSA", "Non RSA"};
-        String newnationalityspinner_array[] = {"RSA", "Non RSA"};
-        String proofAdressspinner_array[] = {"Passport", "Asylum", "Workpermit"};
-        String postal_address_array[] = {"Yes", "No"};
-        final String countrySpinner_array[] = {"Johannesburg", "Capetown", "Durban"};
+
+        String nation_array[] = {"RSA", "Non RSA"};
+        String proofAdressspinner_array[] = {"No", "Passport", "Asylum", "Workpermit"};
+        String postal_address_array[] = {"Please Select", "Yes", "No"};
+        final String countrySpinner_array[] = {"South Africa", "Johannesburg", "Capetown", "Durban"};
 
 
+        // ArrayAdapter<String> networkspinnerdata = new ArrayAdapter<String>(this, R.layout.spinner_row, networkspinner_array);
         NetworkSpinnerAdapter networkspinnerdata = new NetworkSpinnerAdapter(this, ImagesArray);
-        networkSpineer.setAdapter(networkspinnerdata);
-        networkSpineer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        networkspinner.setAdapter(networkspinnerdata);
+        networkspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //networkspinner.setSelection(position);
@@ -151,9 +167,10 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
             }
         });
 
+        //ArrayAdapter<String> subscriberSpinnerdata = new ArrayAdapter<String>(this, R.layout.spinner_radio_row, subscriberSpinnerdata_array);
         SpinnerWithRadioButtonAdapter subscriberSpinnerdata = new SpinnerWithRadioButtonAdapter(this, subscriberSpinnerdata_array);
-        existingSpineer.setAdapter(subscriberSpinnerdata);
-        existingSpineer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        subscriberSpinner.setAdapter(subscriberSpinnerdata);
+        subscriberSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 RadioButton radio = (RadioButton) view.findViewById(R.id.radio);
@@ -169,8 +186,8 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
         });
 
         SpinnerWithRadioButtonAdapter registerwithspinnerdata = new SpinnerWithRadioButtonAdapter(this, registerwithspinner_array);
-        registerwithSpineer.setAdapter(registerwithspinnerdata);
-        registerwithSpineer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        registerwithspinner.setAdapter(registerwithspinnerdata);
+        registerwithspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 RadioButton radio = (RadioButton) view.findViewById(R.id.radio);
@@ -219,61 +236,23 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
             }
         });
 
-        SpinnerWithRadioButtonAdapter newidificationspinnerrdata = new SpinnerWithRadioButtonAdapter(this, idificationspinner_array);
-        newidificationspinner.setAdapter(newidificationspinnerrdata);
-        newidificationspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                RadioButton radio = (RadioButton) view.findViewById(R.id.radio);
-                if (radio != null) {
-                    radio.setChecked(true);
-                }
-                String str = idificationspinner_array.get(position).toString();
-                if (str.equals("Business Registration Number")) {
-                    newpassportLayout.setVisibility(View.GONE);
-                    newinput_layout_idNo.setVisibility(View.VISIBLE);
-                    newidNoView.setHint("Business Registration Number*");
-                } else if (str.equals("Id Number")) {
-                    newpassportLayout.setVisibility(View.GONE);
-                    newinput_layout_idNo.setVisibility(View.VISIBLE);
-                    newidNoView.setHint("ID Number*");
-                } else if (str.equals("Passport")) {
-                    newpassportLayout.setVisibility(View.VISIBLE);
-                    newinput_layout_idNo.setVisibility(View.GONE);
-                } else {
-                    newpassportLayout.setVisibility(View.GONE);
-                    newinput_layout_idNo.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
-        ArrayAdapter<String> nationalityspinneradapter = new ArrayAdapter<String>(this, R.layout.spinner_row, nationalityspinner_array);
+        ArrayAdapter<String> nationalityspinneradapter = new ArrayAdapter<String>(this, R.layout.spinner_row, nation_array);
         nationalityspinner.setAdapter(nationalityspinneradapter);
-        nationalityspinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
-
-        ArrayAdapter<String> newnationalityspinneradapter = new ArrayAdapter<String>(this, R.layout.spinner_row, newnationalityspinner_array);
-        nationalityspinner.setAdapter(newnationalityspinneradapter);
-        nationalityspinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+        nationalityspinner.setOnItemSelectedListener(new SubscriberUpdateActivity.MyOnItemSelectedListener());
 
 
         ArrayAdapter<String> proofAdressspinnerspinneradapter = new ArrayAdapter<String>(this, R.layout.spinner_row, proofAdressspinner_array);
         proofAdressspinner.setAdapter(proofAdressspinnerspinneradapter);
-        proofAdressspinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+        proofAdressspinner.setOnItemSelectedListener(new SubscriberUpdateActivity.MyOnItemSelectedListener());
 
 
         ArrayAdapter<String> countrySpinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_row, countrySpinner_array);
         countrySpinner.setAdapter(countrySpinnerAdapter);
-        countrySpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+        countrySpinner.setOnItemSelectedListener(new SubscriberUpdateActivity.MyOnItemSelectedListener());
 
         ArrayAdapter<String> postalAdapter = new ArrayAdapter<String>(this, R.layout.spinner_row, postal_address_array);
         postalSpinner.setAdapter(postalAdapter);
-        postalSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+        postalSpinner.setOnItemSelectedListener(new SubscriberUpdateActivity.MyOnItemSelectedListener());
 
 
     }
@@ -293,7 +272,7 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
         switch (v.getId()) {
 
             case R.id.Submit:
-                Intent intent = new Intent(SubscriberChnageOwnerActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(SubscriberUpdateActivity.this, DashboardActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 break;
