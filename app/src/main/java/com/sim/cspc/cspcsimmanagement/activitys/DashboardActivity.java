@@ -65,6 +65,7 @@ public class DashboardActivity extends AppCompatActivity
         ListView menuList = (ListView) findViewById(R.id.lst_menu_items);
         menuList.setDivider(null);
         List<String> itemList = new ArrayList<String>();
+        itemList.add("Home");
         itemList.add("CSPC Admin to Approve/Reject User");
         itemList.add("View Allocated Stock");
         itemList.add("Scan Barcode of Simcard");
@@ -75,8 +76,10 @@ public class DashboardActivity extends AppCompatActivity
         itemList.add("Contact Us");
         itemList.add("E-Wallet");
         itemList.add("Reports");
+        itemList.add("Log Off");
 
         List<String> menuIconList = new ArrayList<String>();
+        menuIconList.add("f2dc");
         menuIconList.add("f515");
         menuIconList.add("f2dc");
         menuIconList.add("f072");
@@ -87,6 +90,7 @@ public class DashboardActivity extends AppCompatActivity
         menuIconList.add("f18e");
         menuIconList.add("f584");
         menuIconList.add("f219");
+        menuIconList.add("f343");
 
         NavigationMenuAdapter navigationMenuAdapter = new NavigationMenuAdapter(DashboardActivity.this, itemList, menuIconList);
         menuList.setAdapter(navigationMenuAdapter);

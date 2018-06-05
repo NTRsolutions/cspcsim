@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.sim.cspc.cspcsimmanagement.R;
 import com.sim.cspc.cspcsimmanagement.activitys.DashboardActivity;
+import com.sim.cspc.cspcsimmanagement.activitys.OtpVerificationActivity;
 import com.sim.cspc.cspcsimmanagement.activitys.RegistrationActivity;
 import com.sim.cspc.cspcsimmanagement.activitys.ScanBarcodeofSimcardUploadingDocActivity;
 import com.sim.cspc.cspcsimmanagement.activitys.SigninActivity;
@@ -123,6 +124,14 @@ public class NavigationMenuAdapter extends BaseAdapter {
                 } else if (menuList.get(position).equals("Reports")) {
                     Fragment fragment = new ReportsDashBoardsFragment();
                     navigateToFragment(fragment);
+                } else if (menuList.get(position).equals("Log Off")) {
+                    Intent intent = new Intent(mContext, SigninActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                }else if (menuList.get(position).equals("Home")) {
+                    Intent intent = new Intent(mContext, DashboardActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
                 }
                 int pos = (int) v.getTag();
                 if (selectedPosition.contains(pos)) {
