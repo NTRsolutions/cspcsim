@@ -95,7 +95,7 @@ public class RicaFragment extends Fragment implements View.OnClickListener {
 
     private void init() {
         DashboardActivity rootActivity = (DashboardActivity) getActivity();
-        // rootActivity.setTitle("Dash Board");
+        rootActivity.showBackButtonOrHamburger(false);
         Typeface fontawesome_font = FontManager.getFontTypefaceMaterialDesignIcons(getActivity(), "fonts/fontawesome-webfont.ttf");
         Typeface materialdesignicons_font = FontManager.getFontTypefaceMaterialDesignIcons(getActivity(), "fonts/materialdesignicons-webfont.otf");
       /*  TextView previous = (TextView) view.findViewById(R.id.previous);
@@ -186,7 +186,7 @@ public class RicaFragment extends Fragment implements View.OnClickListener {
             public void run() {
                 handler.post(Update);
             }
-        }, 4000, 4000);
+        }, 5000, 5000);
 
         // Pager listener over indicator
       /*  indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

@@ -92,15 +92,16 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activitys.SubscriberDeRegistrationActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activitys.SubscriberQueryActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activitys.SubscriberChnageOwnerActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".activitys.SubscriberUpdateActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activitys.SubscriberUpdateActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -87,7 +87,7 @@ public class AdminApproveRejectUserFragment extends Fragment {
 
     private void init() {
         DashboardActivity rootActivity = (DashboardActivity) getActivity();
-       // rootActivity.setTitle("Admin Approve Reject User");
+        rootActivity.showBackButtonOrHamburger(true);
 
         userspinner = (Spinner) view.findViewById(R.id.userspinner);
         String postal_address_array[] = {"Pending Approvals","Approved Users","Rejected Users"};

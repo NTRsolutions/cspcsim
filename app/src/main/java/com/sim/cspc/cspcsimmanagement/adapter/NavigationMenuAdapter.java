@@ -23,6 +23,7 @@ import com.sim.cspc.cspcsimmanagement.activitys.RegistrationActivity;
 import com.sim.cspc.cspcsimmanagement.activitys.ScanBarcodeofSimcardUploadingDocActivity;
 import com.sim.cspc.cspcsimmanagement.activitys.SigninActivity;
 import com.sim.cspc.cspcsimmanagement.fragements.AdminApproveRejectUserFragment;
+import com.sim.cspc.cspcsimmanagement.fragements.AirtimeRechargeFragment;
 import com.sim.cspc.cspcsimmanagement.fragements.ReportsDashBoardsFragment;
 import com.sim.cspc.cspcsimmanagement.fragements.RicaFragment;
 import com.sim.cspc.cspcsimmanagement.fragements.ViewAllocatedStockFragment;
@@ -121,7 +122,11 @@ public class NavigationMenuAdapter extends BaseAdapter {
                 } else if (menuList.get(position).equals("Rica")) {
                     Fragment fragment = new RicaFragment();
                     navigateToFragment(fragment);
-                } else if (menuList.get(position).equals("Reports")) {
+                }else if (menuList.get(position).equals("Airtime")) {
+                    Fragment fragment = new AirtimeRechargeFragment();
+                    navigateToFragment(fragment);
+                }
+                else if (menuList.get(position).equals("Reports")) {
                     Fragment fragment = new ReportsDashBoardsFragment();
                     navigateToFragment(fragment);
                 } else if (menuList.get(position).equals("Log Off")) {
@@ -145,6 +150,7 @@ public class NavigationMenuAdapter extends BaseAdapter {
                 }
 
                 DashboardActivity rootActivity = (DashboardActivity) mContext;
+               // rootActivity.hidMenuIcon();
                 rootActivity.closeDrawer();
             }
         });

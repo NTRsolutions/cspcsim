@@ -41,7 +41,7 @@ public class ReportsDashBoardsFragment extends Fragment implements View.OnClickL
 
     private void initView(View v) {
         DashboardActivity rootActivity = (DashboardActivity) getActivity();
-       // rootActivity.setTitle("Report DashBoard");
+        rootActivity.showBackButtonOrHamburger(true);
         this.selectReportSpinner = v.findViewById(R.id.selectReportSpinner);
         this.selecttypeSpinner = v.findViewById(R.id.selecttypeSpinner);
 

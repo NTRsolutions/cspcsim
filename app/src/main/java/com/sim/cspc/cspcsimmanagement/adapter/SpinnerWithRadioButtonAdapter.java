@@ -65,6 +65,21 @@ public class SpinnerWithRadioButtonAdapter extends BaseAdapter {
         }
 
        holder.text_view.setText(Arraydata.get(position).toString());
+        //----------fill selected value------
+        holder.radio.setTag(position);
+        if (selectedPosition.contains(position)) {
+            holder.radio.setChecked(true);
+        } else {
+            holder.radio.setChecked(false);
+        }
+        holder.radio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pos = (int) v.getTag();
+                notifyData(pos);
+            }
+        });
+
        /* holder.menuTitel.setTag(position);
         holder.menuTitel.setText(menuList.get(position).toString());
         holder.menuIcon.setText(Html.fromHtml("&#x" + iconList.get(position).toString() + ";"));*/
@@ -72,7 +87,18 @@ public class SpinnerWithRadioButtonAdapter extends BaseAdapter {
 
         return convertView;
     }
+    public void notifyData(int pos) {
+        if (selectedPosition.contains(pos)) {
+            //selectedPosition.remove(pos);
+            //selectedPosition.clear();
+            notifyDataSetChanged();
+        } else {
+            selectedPosition.clear();
+            selectedPosition.add(pos);
+            notifyDataSetChanged();
+        }
 
+    }
     public class ViewHolder {
         public TextView text_view;
         public LinearLayout menuItemLayout;

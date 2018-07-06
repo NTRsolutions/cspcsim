@@ -88,14 +88,14 @@ public class SubscriberDeRegistrationActivity extends AppCompatActivity implemen
         idificationspinner_array.add("Id Number");
         idificationspinner_array.add("Passport");
 
-        SpinnerWithRadioButtonAdapter idificationspinnerrdata = new SpinnerWithRadioButtonAdapter(this, idificationspinner_array);
+        final SpinnerWithRadioButtonAdapter idificationspinnerrdata = new SpinnerWithRadioButtonAdapter(this, idificationspinner_array);
         identificationTypeSpineer.setAdapter(idificationspinnerrdata);
         identificationTypeSpineer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 RadioButton radio = (RadioButton) view.findViewById(R.id.radio);
                 if (radio != null) {
-                    radio.setChecked(true);
+                    idificationspinnerrdata.notifyData(position);//for select radio button
                 }
                 String str = idificationspinner_array.get(position).toString();
                 if (str.equals("Business Registration Number")) {

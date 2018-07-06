@@ -8,12 +8,10 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.sim.cspc.cspcsimmanagement.R;
 import com.sim.cspc.cspcsimmanagement.activitys.DashboardActivity;
@@ -92,7 +90,8 @@ public class HomeFragment extends Fragment {
 
     private void init() {
         DashboardActivity rootActivity = (DashboardActivity) getActivity();
-        // rootActivity.setTitle("Dash Board");
+        // rootActivity.setTitle("View Allocated Stock");
+        rootActivity.showBackButtonOrHamburger(false);
         Typeface fontawesome_font = FontManager.getFontTypefaceMaterialDesignIcons(getActivity(), "fonts/fontawesome-webfont.ttf");
         Typeface materialdesignicons_font = FontManager.getFontTypefaceMaterialDesignIcons(getActivity(), "fonts/materialdesignicons-webfont.otf");
       /*  TextView previous = (TextView) view.findViewById(R.id.previous);
@@ -107,6 +106,7 @@ public class HomeFragment extends Fragment {
         LinearLayout reportslayout = (LinearLayout) view.findViewById(R.id.reportslayout);
         LinearLayout simlayout = (LinearLayout) view.findViewById(R.id.simlayout);
         LinearLayout ricaLayout = (LinearLayout) view.findViewById(R.id.ricaLayout);
+        LinearLayout airtimeLayout = (LinearLayout) view.findViewById(R.id.airtimeLayout);
         // LinearLayout reportslayout = (LinearLayout) view.findViewById(R.id.reportslayout);
         simlayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +126,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment fragment = new RicaFragment();
+                moveFragment(fragment);
+            }
+        });
+        airtimeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AirtimeRechargeFragment fragment = new AirtimeRechargeFragment();
                 moveFragment(fragment);
             }
         });
@@ -174,7 +181,7 @@ public class HomeFragment extends Fragment {
             public void run() {
                 handler.post(Update);
             }
-        }, 4000, 4000);
+        }, 5000, 5000);
 
         // Pager listener over indicator
       /*  indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

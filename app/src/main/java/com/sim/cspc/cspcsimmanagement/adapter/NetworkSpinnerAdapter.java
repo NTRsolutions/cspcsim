@@ -1,6 +1,7 @@
 package com.sim.cspc.cspcsimmanagement.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -25,6 +26,7 @@ public class NetworkSpinnerAdapter extends BaseAdapter {
     ArrayList<Integer> ImagesArray;
     HashSet<Integer> selectedPosition = new HashSet<>();
     Typeface materialdesignicons_font;
+    public int selectPosition;
 
     public NetworkSpinnerAdapter(Context context,
                                  ArrayList<Integer> ImagesArray) {
@@ -68,12 +70,46 @@ public class NetworkSpinnerAdapter extends BaseAdapter {
         }
 
         holder.logoimage.setImageResource(ImagesArray.get(position));
+       /* if (selectPosition == position) {
+            holder.radio.setChecked(true);
+        } else {
+            holder.radio.setChecked(false);
+        }*/
+
+
+//----------fill selected value------
+        holder.radio.setTag(position);
+        if (selectedPosition.contains(position)) {
+            holder.radio.setChecked(true);
+        } else {
+            holder.radio.setChecked(false);
+        }
+        holder.radio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pos = (int) v.getTag();
+                notifyData(pos);
+            }
+        });
        /* holder.menuTitel.setTag(position);
         holder.menuTitel.setText(menuList.get(position).toString());
         holder.menuIcon.setText(Html.fromHtml("&#x" + iconList.get(position).toString() + ";"));*/
 
 
         return convertView;
+    }
+
+    public void notifyData(int pos) {
+        if (selectedPosition.contains(pos)) {
+            //selectedPosition.remove(pos);
+            //selectedPosition.clear();
+            notifyDataSetChanged();
+        } else {
+            selectedPosition.clear();
+            selectedPosition.add(pos);
+            notifyDataSetChanged();
+        }
+
     }
 
     public class ViewHolder {

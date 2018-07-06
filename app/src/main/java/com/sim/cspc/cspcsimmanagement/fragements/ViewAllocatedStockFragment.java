@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import com.sim.cspc.cspcsimmanagement.R;
 import com.sim.cspc.cspcsimmanagement.activitys.DashboardActivity;
-import com.sim.cspc.cspcsimmanagement.activitys.SignUpActivity;
 import com.sim.cspc.cspcsimmanagement.utilities.FontManager;
 
 import java.text.SimpleDateFormat;
@@ -90,7 +89,7 @@ public class ViewAllocatedStockFragment extends Fragment {
 
     private void init() {
         DashboardActivity rootActivity = (DashboardActivity) getActivity();
-       // rootActivity.setTitle("View Allocated Stock");
+        rootActivity.showBackButtonOrHamburger(true);
 
         String stock_array[] = {"My Stock", "XYZ Stock", "ABC Stock"};
         stockspinner = (Spinner) view.findViewById(R.id.stockspinner);

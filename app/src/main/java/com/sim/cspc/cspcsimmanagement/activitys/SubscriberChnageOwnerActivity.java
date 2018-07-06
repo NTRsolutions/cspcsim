@@ -133,7 +133,7 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
         final String countrySpinner_array[] = {"Johannesburg", "Capetown", "Durban"};
 
 
-        NetworkSpinnerAdapter networkspinnerdata = new NetworkSpinnerAdapter(this, ImagesArray);
+        final NetworkSpinnerAdapter networkspinnerdata = new NetworkSpinnerAdapter(this, ImagesArray);
         networkSpineer.setAdapter(networkspinnerdata);
         networkSpineer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -141,7 +141,7 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
                 //networkspinner.setSelection(position);
                 RadioButton radio = (RadioButton) view.findViewById(R.id.radio);
                 if (radio != null) {
-                    radio.setChecked(true);
+                    networkspinnerdata.notifyData(position);//for select radio button
                 }
             }
 
@@ -151,14 +151,14 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
             }
         });
 
-        SpinnerWithRadioButtonAdapter subscriberSpinnerdata = new SpinnerWithRadioButtonAdapter(this, subscriberSpinnerdata_array);
+        final SpinnerWithRadioButtonAdapter subscriberSpinnerdata = new SpinnerWithRadioButtonAdapter(this, subscriberSpinnerdata_array);
         existingSpineer.setAdapter(subscriberSpinnerdata);
         existingSpineer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 RadioButton radio = (RadioButton) view.findViewById(R.id.radio);
                 if (radio != null) {
-                    radio.setChecked(true);
+                    subscriberSpinnerdata.notifyData(position);//for select radio button
                 }
             }
 
@@ -168,14 +168,14 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
             }
         });
 
-        SpinnerWithRadioButtonAdapter registerwithspinnerdata = new SpinnerWithRadioButtonAdapter(this, registerwithspinner_array);
+        final SpinnerWithRadioButtonAdapter registerwithspinnerdata = new SpinnerWithRadioButtonAdapter(this, registerwithspinner_array);
         registerwithSpineer.setAdapter(registerwithspinnerdata);
         registerwithSpineer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 RadioButton radio = (RadioButton) view.findViewById(R.id.radio);
                 if (radio != null) {
-                    radio.setChecked(true);
+                    registerwithspinnerdata.notifyData(position);//for select radio button
                 }
             }
 
@@ -186,14 +186,14 @@ public class SubscriberChnageOwnerActivity extends AppCompatActivity implements 
         });
 
 
-        SpinnerWithRadioButtonAdapter idificationspinnerrdata = new SpinnerWithRadioButtonAdapter(this, idificationspinner_array);
+        final SpinnerWithRadioButtonAdapter idificationspinnerrdata = new SpinnerWithRadioButtonAdapter(this, idificationspinner_array);
         idificationspinner.setAdapter(idificationspinnerrdata);
         idificationspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 RadioButton radio = (RadioButton) view.findViewById(R.id.radio);
                 if (radio != null) {
-                    radio.setChecked(true);
+                    idificationspinnerrdata.notifyData(position);//for select radio button
                 }
                 String str = idificationspinner_array.get(position).toString();
                 if (str.equals("Business Registration Number")) {
